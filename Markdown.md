@@ -65,7 +65,7 @@ def foo():
 
 ## 이미지
 
-![dog](image/dog.jpg)
+![dog](images/dog.jpeg)
 
 ## 표
 
