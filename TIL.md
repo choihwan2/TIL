@@ -4,8 +4,6 @@
 
 ## [JAVA](./java)
 
-## 12.03
-
 ### import
 
 package import 할때 가능하면 *보다는 하나하나 하자. 이유는 static 한 애들이 다 메모리에 들어가기 때문에.
@@ -40,19 +38,12 @@ package import 할때 가능하면 *보다는 하나하나 하자. 이유는 sta
 
 ### switch 와 if
 
-`swith` 문과` if `문 => if 다섯개 이상? 정도 될때는 switch 를 쓰자 switch 를 쓰려면 내부적으로 따로 환경을 구성하다보니 조금 더 오래 걸릴수도있음
+`swith` 문과` if `문 => if 다섯개 이상? 정도 될때는 `switch` 를 쓰자 `switch` 를 쓰려면 내부적으로 따로 환경을 구성하다보니 조금 더 오래 걸릴수도있음
 가독성이 좋음.
 
+`break` 라벨 씌워진 반복문을 탈출할 수 있다.
 
-break A 라벨 씌워진 반복문을 탈출
-
-> tip: static 영역에서는 this를 사용할 수 없음. + super도
-
-
-
-## 12.09
-
-### super 와 this
+### super 와 this (feat. 다형성)
 
 모든 객체의 생성자에서는 부모 객체의 생성자를 들렸다 온다
 
@@ -98,6 +89,8 @@ public class PolymorphismDemo1 {
 
 `this.kind` 인 `this`를 사용했을때 그 영역내에 변수가 없다면 부모의 클래스로 넘어가서 찾아봅니다.
 
+> tip: static 영역에서는 this를 사용할 수 없음. + super도
+
 
 
 ### 오버로딩 vs 오버라이딩
@@ -115,7 +108,7 @@ public class PolymorphismDemo1 {
 
 
 
-### abstract class 와 interface
+### abstract class 
 
 `abstract class` 상속을 전제로 하여 짜여진 코드. 다른 클래스에서 상속을 받게되면 무조건 비어있는 `abstract` 클래스를 구현해야함.
 
@@ -123,15 +116,86 @@ public class PolymorphismDemo1 {
 
 > tip: 무언가 클래스를 설계할때는 `Object` 에 있는 `toString` 과 `equals` 를 적합하게 바꾸는것이 클래스 설계의 기초이다.
 
+### interface
+
+안에서 추상클래스로 이루어져 있거나 static 한 상수만 존재 가능.
+
+implements 를 사용하여 클래스에서 추상메소드 구현을 강제하는 약속을 담당한다.
 
 
-인터페이스는 메모리 힙 영역에 올라가지 않는다. 이름규칙은 ~~able 인터페이스는 인터페이스끼리 다중상속이가능함. 
+
+```java
+public class Interface {
+	public static void main(String[] args) {
+		T[] t = {new Circle_8(), new Rectangle_8()};
+	}
+}
+interface T extends Drawable,Moveable{
+}
+
+interface Drawable {
+	void draw();
+}
+
+interface Moveable {
+	void move();
+}
+
+class Circle_8 implements T{
+	String name = "Circle";
+	@Override
+	public void move() {}
+	@Override
+	public void draw() {}
+}
+
+class Rectangle_8 implements T{
+	String name = "Rectangle";
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub	
+	}
+	@Override
+	public void move() {
+		// TODO Auto-generated method stub
+	}
+}
+```
+
+
+
+인터페이스는 메모리 힙 영역에 올라가지 않는다. 이름규칙은 ~~able로 하는 것이 좋으며
+
+인터페이스는 인터페이스끼리 다중상속이 가능하다. 
+
+> tip: 후에 인터페이스 내부의 클래스 추가를 하기 위해서 default 연산자를 사용하여 추가도 가능! 
+
+### Lamda식
+
+```java
+public class SelfTest {
+	public static void main(String[] args) {
+		String namestString = "hwan";
+		Lamdable lamdable = name -> {
+			System.out.println("chapchap");
+			System.out.println(name);
+		};
+		lamdable.lam(namestString);
+	}
+}
+
+interface Lamdable {
+	void lam(String name);
+}
+```
 
 
 
 이너클래스일 경우 폴더에서 class A{ class B } => A$B 라고 표현이 됩니다.
 
-인터페이스 안의 추상메소드가 하나일때는 람다식으로 표현할 수 있음.
+인터페이스 안의 추상메소드가 하나일때는 람다식으로 표현할 수 있음. 
+
+인터넷의 좀더 많은 예제를 통하여 공부하자.
 
 
 
@@ -142,6 +206,36 @@ try() => 괄호안으로 반납해야 하는 자원을 넣어주면 자동으로
 
 
 Clinet 에게 에러 메시지를 보여주거나 할때 main에서 보여줌. 메소드 안에서 try catch를 해결한다면 서버에서 해결하는것과 비슷.
+
+
+
+```java
+public class TryAndCatch {
+	public static void main(String[] args) {
+		System.out.println("start");
+		String msg = "-5";
+		int num = 0;
+		int res = 0;
+		try {
+			num = Integer.parseInt(msg);
+			res = 1000 / num;
+			int[] number = new int[num];
+		} catch (NumberFormatException e) {
+			System.err.println("숫자로 바꿀수 있는 문자열을 입력하세요");
+		} catch (ArithmeticException e) {
+			System.out.println("0으로는 나눌수 없습니다.");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e);
+		
+		} finally {
+			System.out.println("무조건 들어오는 곳이라 자원반납. 항상수행됨.");
+		}
+	}
+}
+```
+
+
 
 
 
@@ -167,9 +261,34 @@ LinkedList => 장점 : 삽입과 삭제가 쉬움 단점: 걍 확인이 느림. 
 
 Map = key 와 value => key는 중복되지않는다. 지도에서 좌표를 찾아가면 진짜 땅이 있는걸로 기억합시다. 내부적으로 키값을 찾아서 해당하는 벨류를 찾는것이 매우 빠름. 
 
+
+
+### SingleTone패턴
+
+```java
+class SingleTone {
+
+	private static SingleTone s;
+
+	private SingleTone() { // 여기 클래스 안에서만 생성함.
+
+	}
+	public static SingleTone getInstance() {
+		if (s == null)
+			s = new SingleTone();
+		return s;
+	}
+}
+```
+
+**한번의 객체 생성만 되어 메모리에 올라간다.** 
+
+구글링해보니 후에 문제가 발생할 수도 있다는데 그때 다시 돌아오도록 하자.
+
 ## 기타
 
 * [Git](https://github.com/choihwan2)
 * Markdown
-* 
+
+
 

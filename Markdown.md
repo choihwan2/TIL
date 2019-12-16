@@ -88,28 +88,6 @@ def foo():
 * **볼드체 굵게** `**볼드체**`
 * ~~취소선~~`~~취소선~~`
 * notion 알아보기!
-* 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# clone library
-
-git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
-# install library
-~/.bash_it/install.sh
-
 
 
 ## git 명령어
