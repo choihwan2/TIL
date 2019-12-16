@@ -124,7 +124,7 @@ git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
 
 # Git 기초
 
-## 0.준비 사항
+## 0. 준비 사항
 
 * [git bash](https://gitforwindows.org/)
   * git을 활용하기 위한 CLI(command Line interface)를 제공한다
@@ -132,7 +132,7 @@ git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
 
 ## 1. 로컬 저장소 활용하기
 
-### 1.저장소 초기화
+### 1. 저장소 초기화
 
 ```bash
 $ git init
@@ -168,7 +168,7 @@ Changes to be committed:
         new file:   b.txt
 ```
 
-### commit
+### 3. commit
 
 > 커밋은 코드의 이력을 남기는 과정이다.
 
@@ -210,3 +210,49 @@ $ git commit -m "add:b.txt"
 
   **항상 status 명령어를 통해 git의 상태를 확인하자! commit 이후에는 log 명령어를 통해 이력들을 확인하자**
 
+
+
+## 원격 저장소 활용하기
+
+> 원격 저장소(remote repository)를 제공하는 서비스는 다양하게 존재한다.
+>
+> github을 기준으로 설명ㅎㄴ다.
+
+## 0. 준비하기
+
+* Github에서 저장소(repository) 생성
+
+### 1. 원격 저장소 설정
+
+```bash
+$ git remote add origin {github url}
+```
+
+* {github url} 부분에는 원격 저장소 url을 작성한다.
+* 원격 저장소(remote)로 {github url}  을 orgin 이라는 이름으로 추가(add)하는 명령어이다.
+* 원격 저장소 목록을 보기 위해서는 아래의 명령어를 활용한다.
+
+```bash
+$ git remote -v
+origin  https://github.com/choihwan2/TR.git (fetch)
+origin  https://github.com/choihwan2/TR.git (push)
+```
+
+### 2. push
+
+```bash
+$ git push origin master
+
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 2.44 KiB | 2.44 MiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/choihwan2/TR.git
+   46b3223..3c6588e  master -> master
+```
+
+* 설정된 원격 저장소(origin) 으로 push!
+
+폴더의 내용을 수정 및 삭제, 생성 등을 하게 된다면 add comit push 명령어를 통해서 이력을 저장하고 push 명령어를 통해 업로드를 한다.
