@@ -2,7 +2,7 @@
 
 > 오늘 배운 내용을 정리하자
 
-## [Java](./Java)
+## [Java](https://github.com/choihwan2/TIL/blob/master/Java.md)
 
 ## 기타
 
