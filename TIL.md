@@ -2,11 +2,11 @@
 
 > 오늘 배운 내용을 정리하자
 
-## [JAVA](./java)
+## [Java](./java)
 
 ### import
 
-package import 할때 가능하면 *보다는 하나하나 하자. 이유는 static 한 애들이 다 메모리에 들어가기 때문에.
+`package import` 할때 가능하면 `*`보다는 하나하나 하자. 이유는 `static` 한 애들이 다 메모리에 들어가기 때문에.
 
 
 
@@ -28,11 +28,13 @@ package import 할때 가능하면 *보다는 하나하나 하자. 이유는 sta
 > Java 언어의 창시자인 제임스 고슬링 형님(?)께서는 문자열 객체는 재사용 될 가능성이 높기에 같은 값일 경우 
 > 어플리케이션 당 하나의 String 객체만을 생성해두어 JVM의 힙(heap)을 절약하고자 했습니다.
 
+
+
 ### 비트연산자
 
 `1 & 4 = 0` 같은곳에 있으면 1 나옴 아니면 0 즉, 0001 & 0100 => 0000
 `1 | 4 = 5` 하나만 있어도 1  0001 | 0100 => 0101
-`1 ^ 4  = 5 `달라야지 1이 나옴 0001 ^ 0100 => 0101
+`1 ^ 4 = 5 `달라야지 1이 나옴 0001 ^ 0100 => 0101
 
 
 
@@ -42,6 +44,8 @@ package import 할때 가능하면 *보다는 하나하나 하자. 이유는 sta
 가독성이 좋음.
 
 `break` 라벨 씌워진 반복문을 탈출할 수 있다.
+
+
 
 ### super 와 this (feat. 다형성)
 
@@ -116,9 +120,11 @@ public class PolymorphismDemo1 {
 
 > tip: 무언가 클래스를 설계할때는 `Object` 에 있는 `toString` 과 `equals` 를 적합하게 바꾸는것이 클래스 설계의 기초이다.
 
-### interface
 
-안에서 추상클래스로 이루어져 있거나 static 한 상수만 존재 가능.
+
+### Interface
+
+안에서 추상클래스로 이루어져 있거나 `static` 한 상수만 존재 가능.
 
 implements 를 사용하여 클래스에서 추상메소드 구현을 강제하는 약속을 담당한다.
 
@@ -170,6 +176,8 @@ class Rectangle_8 implements T{
 
 > tip: 후에 인터페이스 내부의 클래스 추가를 하기 위해서 default 연산자를 사용하여 추가도 가능! 
 
+
+
 ### Lamda식
 
 ```java
@@ -191,6 +199,38 @@ interface Lamdable {
 
 
 
+다른 예제
+
+```java
+public class Test04 {
+	public static void main(String[] args) {
+
+		Controller insert = new Controller() {
+			// 익명 클래스
+			// 이름 없는 클래스를 객체 생성하고 사용함.
+			// 재활용이 불가능한 코드입니다. 단순하게 하나의 행동을 하고 끝날때
+			// 안드로이드에서 버튼을 만들고 거기에서 이벤트 처리할때 이렇게 사용했었네
+			@Override
+			public void exec() {
+				System.out.println("insert 수행");
+			}
+		};
+//		insert.exec();
+		// 람다식 표현 interface 안의 추상 메소드가 하나뿐일때 이렇게 표현도 가능. 즉 exec가 이렇게 오버라이딩 되는거시다.
+		Controller update = () -> System.out.println("update 수행");
+
+//		update.exec();
+		Controller delete = () -> System.out.println("delete 수행");
+
+//		delete.exec();
+	}
+}
+```
+
+
+
+
+
 이너클래스일 경우 폴더에서 class A{ class B } => A$B 라고 표현이 됩니다.
 
 인터페이스 안의 추상메소드가 하나일때는 람다식으로 표현할 수 있음. 
@@ -202,8 +242,6 @@ interface Lamdable {
 ### try 와 catch
 
 try() => 괄호안으로 반납해야 하는 자원을 넣어주면 자동으로 반납해줌. finall 안에 반납안해줘도 됨.
-
-
 
 Clinet 에게 에러 메시지를 보여주거나 할때 main에서 보여줌. 메소드 안에서 try catch를 해결한다면 서버에서 해결하는것과 비슷.
 
@@ -237,17 +275,13 @@ public class TryAndCatch {
 
 
 
-
+### Java의 콜렉션
 
 **stack = LIFO** 라스티인퍼스트 아웃. 
 
 **queue = FIFO** 퍼스트인 퍼스트 아웃
 
-
-
-### Java의 콜렉션
-
-Set = *중복없이* 순서없이 객체를 삽입. = 주머니에 데이터를 본다고 생각하면됨. 
+Set = *중복없이*  순서없이 객체를 삽입. = 주머니에 데이터를 본다고 생각하면됨. 
 
 들어간 순서대로 데이터가 다시 나올 보장이없음.
 
@@ -259,7 +293,9 @@ LinkedList => 장점 : 삽입과 삭제가 쉬움 단점: 걍 확인이 느림. 
 
 
 
-Map = key 와 value => key는 중복되지않는다. 지도에서 좌표를 찾아가면 진짜 땅이 있는걸로 기억합시다. 내부적으로 키값을 찾아서 해당하는 벨류를 찾는것이 매우 빠름. 
+Map = key 와 value => key는 중복되지않는다. 지도에서 좌표를 찾아가면 진짜 땅이 있는걸로 기억합시다. 
+
+내부적으로 키값을 찾아서 해당하는 벨류를 찾는것이 매우 빠름. 
 
 
 
@@ -281,14 +317,59 @@ class SingleTone {
 }
 ```
 
-**한번의 객체 생성만 되어 메모리에 올라간다.** 
+**한번의 객체 생성만 되어 메모리에 올라간다.** 즉, 인스턴스가 프로그램 내에서 오직 **하나만 생성**되는 것을 보장하고, 프로그램 어디에서든 이 인스턴스에 접근할 수 있도록 하는 **패턴**입니다. 즉, 인스턴스가 사용될 때 똑같은 인스턴스를 여러 개 만드는 것이 아니라, 기존에 생성했던 동일한 인스턴스를 사용하게끔 하는 것입니다
 
 구글링해보니 후에 문제가 발생할 수도 있다는데 그때 다시 돌아오도록 하자.
+
+
+
+### Generic
+
+제네릭(Generic)은 클래스 내부에서 사용할 데이터 타입을 외부에서 지정하는 기법을 의미한다. 예제를 보자.
+
+```java
+
+public class Generic {
+	public static void main(String[] args) {
+		Employee2<String,Integer> emp2 = new Employee2<String, Integer>("홍길동", 2132312);
+		System.out.println(emp2);
+		
+	}
+}
+
+class Employee2<T, P extends Number> {
+	T name;
+	P number;
+
+	public Employee2(T name, P number) {
+		super();
+		this.name = name;
+		this.number = number;
+	}
+}
+```
+
+후에 어떻게 사용될지 모르는 데이터 타입을 T와  P로 지정해 놓고 String 과 Integer로 사용하고 있다.
+
+
+
+#### Type Parameter 명명 규칙
+
+* E : Element
+* K : Key
+* N : Number
+* T : Type
+* V : Value
+* S, U, V etc : 2nd, 3rd, 4th types
+
+
+
+
 
 ## 기타
 
 * [Git](https://github.com/choihwan2)
-* Markdown
+* [Markdown](https://github.com/choihwan2/TIL/blob/master/Markdown.md)
 
 
 
