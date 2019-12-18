@@ -234,3 +234,19 @@ To https://github.com/choihwan2/TR.git
 * 설정된 원격 저장소(origin) 으로 push!
 
 폴더의 내용을 수정 및 삭제, 생성 등을 하게 된다면 add comit push 명령어를 통해서 이력을 저장하고 push 명령어를 통해 업로드를 한다.
+
+
+
+## 3. git commit -am
+
+```bash
+$ git commit -am "update skill sets"
+
+```
+
+add와 commit 이 한번에 가능하게 해주는 명령어 입니다. 그동안의 기록들이 올라가지만 깃헙에서는 최신의 기록만 보여줍니다.
+
+
+
+ESC + : wq : 빔 탈출!
+
