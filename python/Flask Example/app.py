@@ -68,7 +68,6 @@ def lunch(num):
 
 @app.route("/vonvon")
 def vonvon():
-
     return render_template("vonvon.html")
 
 @app.route("/godmademe")
