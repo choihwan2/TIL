@@ -20,7 +20,7 @@ print(name)
 first = "tony"
 age = 20
 
-text = "안녕하세요. 제 이름은 {}입니다. 나이는 {}입니다." .format(first, age)
+text = "안녕하세요. 제 이름은 {}입니다; 나이는 {}입니다." .format(first, age)
 print(text)
 
 test_name = text[:15]
