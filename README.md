@@ -4,7 +4,10 @@
 
 ## [Java](https://github.com/choihwan2/TIL/blob/master/Java.md)
 
+## [Algorithim](#)
+
 ## 기타
 
-* [Git](https://github.com/choihwan2)
+* [Git](https://github.com/choihwan2/TIL/tree/master/Git_md)
 * [Markdown](https://github.com/choihwan2/TIL/blob/master/Markdown.md)
+
