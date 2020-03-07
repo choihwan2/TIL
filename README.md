@@ -6,7 +6,7 @@
 
 ## [Algorithim](https://github.com/choihwan2/TIL/blob/master/Algorithim.md)
 
-## [JavaScript30] (https://github.com/choihwan2/TIL/blob/master/javascript/javascirpt30.md)
+## [JavaScript30](https://github.com/choihwan2/TIL/blob/master/javascript/javascirpt30.md)
 
 ## 기타
 
