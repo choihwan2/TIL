@@ -127,19 +127,19 @@ public class Main{
 
 - 피보나치 수열을 그냥 재귀로 풀게되면 시간ㅇ니 꽤나 오래 걸린다 그걸 해결해보자!
 
-![스크린샷 2020-03-07 오후 5.47.25](images/스크린샷 2020-03-07 오후 5.47.25.png)[출처](https://youtu.be/vYquumk4nWw?list=PLBZBJbE_rGRU5PrgZ9NBHJwcaZsNpf8yD)
+<img src="images/스크린샷 2020-03-07 오후 5.54.20.png" alt="dynamic_1" style="zoom:80%;" />
+[출처](https://youtu.be/vYquumk4nWw?list=PLBZBJbE_rGRU5PrgZ9NBHJwcaZsNpf8yD)
 
 > 그냥 재귀 함수로 구현시 같은 함수들을 몇번씩이나 호출하게 되는데 그때 마다 계산해주기 위해 많은 연산이 필요하게 된다.
 
 - 위를 해결하기 위해 첫번째로 Memoized Solution을 사용한다. 배열을 사용한 해결법
+<img src="images/스크린샷 2020-03-07 오후 5.54.20.png" alt="dynamic_2" style="zoom:80%;" />
 
-![스크린샷 2020-03-07 오후 5.54.20](images/스크린샷 2020-03-07 오후 5.54.20.png)
 
 > 보면 함수가 호출되기전에 먼저 배열을 하나 갖고 있고 그 배열의 값을 참조해서 문제를 해결했다. 시간이 O(2ⁿ) 에서 O(n)으로 엄청나게 줄어든 것을 볼 수 있다.
 
 - 이것을 Bottom-Up Approach 왼쪽에서 오른쪽으로 쭉 올라가면서 사용하기 때문에 이렇게 부르는(맞나?) 것 같다. 그래서 좀 더 정리해보면.
-
-![스크린샷 2020-03-07 오후 6.01.38](images/스크린샷 2020-03-07 오후 6.01.38.png)
+<img src="images/스크린샷 2020-03-07 오후 6.01.38.png" alt="dynamic_3" style="zoom:80%;" />
 
 > 시간 계산 자체는 O(n)으로 동일하겠지만 그전에 배열을 선언해서 갖고있던 메모리 낭비와는 다르게 한번 사용후 버려지는 효율점이 있지 않을까 생각한다.
 
@@ -147,7 +147,7 @@ public class Main{
 
 - 그렇게 해서 풀게 된 Programmer의 [연습문제](https://programmers.co.kr/learn/courses/30/lessons/12945)이다. 
 
-<img src="images/스크린샷 2020-03-07 오후 6.16.25.png" alt="스크린샷 2020-03-07 오후 6.16.25" style="zoom:50%;" />
+<img src="images/스크린샷 2020-03-07 오후 6.16.25.png" alt="dynamic_problem" style="zoom:50%;" />
 
 ```java
 class Solution {
