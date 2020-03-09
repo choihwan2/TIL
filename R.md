@@ -284,3 +284,111 @@ help(mean)
 
 ## Vector
 
+```R
+
+# vector : 1차원 선형자료구조. 순서의 개념이 있다. 
+#          index를 이용하여 vector 를 사용 할 수 있다.
+#          index의 시작은 1.
+#          []를 이용하여 각 요소를 access 할 수 있다.
+#          요소가 1개짜리 vector => scalar
+myvar = c(100)
+
+# vector 를 만드는 방법
+# 1. combine() 함수를 이용하기 => c()
+#    vector를 만드는 가장 대표적인 방법이다.
+#    2개 이상의 vector 를 하나의 vector로 만들때도 사용할 수 있다!
+myVar1 = c(10,20,30)
+myVar2 = c(3.14,10,100) 
+
+myVar1
+myVar2 #3.14 10.00 100.00 형태를 같게 만들어준다
+
+result <- c(myVar1,myVar2) #합치기!
+
+# 2. ":" 을 이용해서 만들수 있다!
+#     수치형 데이터에만 사용할 수 있고
+#     단조증가,단조감소 형태의 vector를 생성
+myVar = 1:10
+myVar # 1 2 3 4 5 6 7 8 9 10
+myVar = 8.7 : 2
+myVar # 8.7 7.7 6.7 5.7 4.7 3.7 2.7
+
+# 3. 2번의 일반형
+myVar = seq(1,10,2)
+myVar # 1 3 5 7 9
+
+myVar = seq(from = 10, to = 3, by = -3); #가능하면 이렇게 사용
+myVar # 10 7 4
+
+# 4. 반복적인 값을 이용해서 vector 생성
+#     rep()
+myVar = rep(1:3, times =3)
+myVar # 1 2 3 1 2 3 1 2 3
+
+myVar = rep(1:3, each=3)
+myVar # 1 1 1 2 2 2 3 3 3
+
+# 많이 사용하는 함수중 하나가 vector안의 요소 개수를
+# 알아 내는 함수
+length(myVar)
+
+# vector 요소의 사용(indexing 방식)
+myVar = c(3.14, 100, "Hello", TRUE, 300)
+myVar
+
+# *****
+myVar[1] # 첫번째 요소
+myVar[length(myVar)] # 마지막 요소를 access
+
+result = myVar[2:4] # 2~4 번째 요소를 가져오자
+                    # slicing
+result # "100" "Hello" "TRUE"
+
+result =  myVar[c(2,3,5)] # 2,3,5 번째 요소를 가져오자
+                          # fancy indexing
+result # "100" "Hello" "300"
+
+myVar[-1] # 1번빼고 나머지!
+myVar[-(3:4)] # 3 ~ 4 번째 빼고 나머지
+myVar[-c(1,4,5)] # 1,4,5 번째 뺴고 나머지!
+
+### Vector 데이터에 이름을 붙여보자
+myVar = c(10,20,30,40,50)
+
+names(myVar) # NULL 이름을 아직 정해주지 않았다.
+
+names(myVar) = c("a","b","c","d","e")
+
+names(myVar) # "a" "b" "c" "d" "e"
+
+myVar 
+# a  b  c  d  e 
+# 10 20 30 40 50 
+myVar[1] # a 10
+myVar["a"] # a 10
+
+###################################
+
+# vector : 연산
+
+myVar1 = 1:3 # 1 2 3
+myVar2 = 4:6 # 4 5 6
+
+result = myVar1 + myVar2
+result # 5 7 9
+
+myVar3 = 1:6 # 1 2 3 4 5 6
+
+result = myVar1 + myVar3 #(rectcle rule)
+      #1 2 3 1 2 3  1 2 3 4 5 6
+result#2 4 6 5 7 9
+
+# vector에 대한 집합연산(합집합, 교집합, 차집합)
+var1 = 1:5 # 1 2 3 4 5
+var2 = 3:7 # 3 4 5 6 7
+
+union(var1,var2) # 합집합: 1 2 3 4 5 6 7 
+intersect(var1,var2) # 교집합: 3 4 5
+setdiff(var1,var2) # 차집합: 1 2 
+```
+
