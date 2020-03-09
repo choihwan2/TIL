@@ -8,6 +8,8 @@
 
 ## [JavaScript30](https://github.com/choihwan2/TIL/blob/master/javascript/javascirpt30.md)
 
+## [R](https://github.com/choihwan2/TIL/blob/master/R.md)
+
 ## 기타
 
 * [Git](https://github.com/choihwan2/TIL/tree/master/Git_md)
