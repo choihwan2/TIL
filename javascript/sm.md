@@ -1,5 +1,64 @@
 # 소마 준비
 
+- Algorithim
+
+```java
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+class Main {
+	public static void main(String[] args) throws Exception {
+		
+		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+		String first = bf.readLine();
+		StringTokenizer strToken = new StringTokenizer(first);
+		int num = Integer.parseInt(strToken.nextToken());
+		int K = Integer.parseInt(strToken.nextToken()) - 1;	// 범위 보다 1개 적게 줘야지 왼쪽 오른쪽으로 나눴을때의 계산이 편해진다.
+		int[] arr = new int[num];
+		int answer = 0;
+		
+		String values = bf.readLine();
+		strToken = new StringTokenizer(values);
+		int temp =0;
+		while (strToken.hasMoreElements()) {
+			arr[temp++] = Integer.parseInt(strToken.nextToken());
+		}
+		
+		int min = arr[0];  
+		int pos = 0;	//최소값의 위치를 찾는다.
+		for(int i = 1; i< arr.length; i++) {
+			if(min > arr[i]) {
+				min = arr[i];
+				pos = i;
+			}
+		}
+		
+		int left = pos;	//왼쪽 갯수
+		int right = arr.length - pos -1;	//오른쪽 갯수
+		
+		answer += left / K;
+		int rest_L = left%K;
+		answer += right / K;
+		int rest_R = right%K;
+		if(rest_L + rest_R > K) {
+			answer += 2;
+		}else {
+			answer++;
+		}
+		if(rest_L + rest_R ==0) {
+			answer--;
+		}
+		
+		
+		System.out.println(answer);
+		
+	}
+}
+```
+
+
+
 - html
 
 ```html
