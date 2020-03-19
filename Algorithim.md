@@ -5,6 +5,7 @@
 - [문자열](#문자열)
 - [배열](#배열)
 - [동적계획법](#동적계획법)
+- [탐색](#탐색)
 
 
 
@@ -171,4 +172,103 @@ class Solution {
     }
 }
 ```
+
+
+
+## 탐색
+
+- ### 이진탐색(binarySearch)
+
+  기본적으로 java에서는 이진탐색을 쉽게 도와주는 메소드 `Arrays.binarySearch(Object[], Object key)`메소드를 지원한다. 근데 이 메소드를 사용할 때 매개변수로 다양한 타입들이 들어갈 수 있다. 
+
+  자연 정렬이 되는 int나 String 같은 경우 배열과 찾고자 하는 key 값으로만으로 해결할 수 있지만 자연 정렬이 되지 않는 객체타입 일 경우 어떻게 할 수 있을까? 
+
+  바로 인터페이스 `Comparable<A>` 을 사용하는 것인데 이것을 중점으로 작성해보겠다.\
+
+- 전체 코드
+
+```java
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Scanner;
+
+public class PhysExamSearch {
+
+	public static void main(String[] args) {
+		Scanner stdIn = new Scanner(System.in);
+		PhysData[] x = {
+				new PhysData("이나영", 162, 0.3),
+				new PhysData("원빈", 163, 2.0),
+				new PhysData("잡스", 172, 1.3),
+				new PhysData("강나영", 175, 0.8),
+				new PhysData("고나영", 178, 3.3),
+				new PhysData("민나영", 180, 2.3),
+				new PhysData("수나영", 182, 1.7),
+				new PhysData("박나영", 186, 0.9)
+		};
+		System.out.println("몇 cm 인 사람을 찾고 있나요? : ");
+		int height = stdIn.nextInt();
+		int idx = Arrays.binarySearch(x, new PhysData("", height, 0.0),PhysData.HEIGHT_ORDER);
+		
+		if(idx <0)
+			System.out.println("없다");
+		else {
+			System.out.println("x[" + idx + "]에 있습니다.");
+			System.out.println("찾은 데이터:" + x[idx]);
+		}
+		
+		stdIn.close();
+
+	}
+
+	static class PhysData {
+		private String name;
+		private int height;
+		private double vision;
+        
+		public PhysData(String name, int height, double vision) {
+			super();
+			this.name = name;
+			this.height = height;
+			this.vision = vision;
+		}
+
+		@Override
+		public String toString() {
+			return "PhysData [name=" + name + ", height=" + height + ", vision=" + vision + "]";
+		}
+		public static final Comparator<PhysData> HEIGHT_ORDER = new HeightOrderComparator();
+
+		private static class HeightOrderComparator implements Comparator<PhysData> {
+			@Override
+			public int compare(PhysData d1, PhysData d2) {
+				return (d1.height > d2.height) ? 1 : (d1.height < d2.height) ? -1 : 0;
+			}
+		}
+	}
+}
+```
+
+​	이 코드에서 중점이 되는 부분은 바로
+
+```java
+static class PhysData {
+		private String name;
+		private int height;
+		private double vision;
+    /*
+    중략...
+    */
+		public static final Comparator<PhysData> HEIGHT_ORDER = new HeightOrderComparator();
+
+		private static class HeightOrderComparator implements Comparator<PhysData> {
+			@Override
+			public int compare(PhysData d1, PhysData d2) {
+				return (d1.height > d2.height) ? 1 : (d1.height < d2.height) ? -1 : 0;
+			}
+		}
+	}
+```
+
+ 	이 부분일 것 같다. `PhysData`라는 클래스 내부에 `Comparator`를 리턴해주는 `HEIGHT_ORDER` 를 지정하고 `HeightOrderComparator` 안에서 `compare()` 라는 어떻게 비교해 줄 것인지에 대한 것을 구현해서 후에 사용할때 넘겨주기만 하면 된다.
 
