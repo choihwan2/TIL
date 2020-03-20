@@ -1,5 +1,9 @@
 # 나만의 알고리즘 정리하기
 
+## 알고리즘 문제를 못풀었을 때 볼것
+
+- [코딩테스트를 위한 tip]([https://github.com/JaeYeopHan/Interview_Question_for_Beginner/tree/master/Algorithm#%EC%BD%94%EB%94%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%A5%BC-%EC%9C%84%ED%95%9C-tip](https://github.com/JaeYeopHan/Interview_Question_for_Beginner/tree/master/Algorithm#코딩-테스트를-위한-tip))
+
 ## 바로가기!
 
 - [문자열](#문자열)
