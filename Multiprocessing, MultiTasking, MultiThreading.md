@@ -11,3 +11,8 @@
   => 하나의 프로그램을 다중으로 분할하여 작업하는 것. 쓰레드 뮤텍스 세마포어 등등.
 
   => 하나의 Task 를 여러개의 sub Task 로 분할해서 동시간대에, 혹은 마치 동시간에 실행 되는 것처럼 만드는 기법. Thread 를 독립적인 실행 흐름 이라고 말하기도 한다. 
+
+### 참고
+
+- [링크]([https://donghoson.tistory.com/category/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%97%B7%EA%B0%88%EB%A6%AC%EB%8A%94%20%EA%B0%9C%EB%85%90%20%EC%A0%95%EB%A6%AC](https://donghoson.tistory.com/category/운영체제/헷갈리는 개념 정리))
+
