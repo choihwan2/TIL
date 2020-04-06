@@ -3,6 +3,11 @@
 ## 알고리즘 문제를 못풀었을 때 볼것
 
 - [코딩테스트를 위한 tip]([https://github.com/JaeYeopHan/Interview_Question_for_Beginner/tree/master/Algorithm#%EC%BD%94%EB%94%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%A5%BC-%EC%9C%84%ED%95%9C-tip](https://github.com/JaeYeopHan/Interview_Question_for_Beginner/tree/master/Algorithm#코딩-테스트를-위한-tip))
+- 알고리즘은 책만으로 공부할 수 있는게 아니다
+  - 강의 또는 지식 전달한 것을 듣고 공부했다고 착각하지 말자. 직접 코딩을 해서 본인것으로 만들어야 한다.
+  - 내 실력에 맞는 문제를 풀자!
+  - 너무 빠른 구글링은 실력을 낮출뿐. 구글링을 하더라도 이걸 어떻게 푸는것인지에 대한 이해가 중요하다.
+  - 타인의 도움을 받아서 알게된 것은 완전히 내것은 아니다.(1번과 비슷) 완벽한 복기가 필요.
 
 ## 바로가기!
 
@@ -351,4 +356,5 @@ public class Problem1931 {
 ```
 
 - 처음 알고리즘을 풀면서 Comparator를 사용해본거라 좀 지저분하다.. compare 메소드를 오버라이딩 하면서 저렇게 하는게 맞는건지도 헷갈리지만.. 후에 좀더 알게되면 수정해보도록 해야겠다.
+- 참고로 Arrays.sort() 함수는 기본적으로 오름차순의 정렬을 한다.
 
