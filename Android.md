@@ -68,3 +68,15 @@ Activity Service Broadcast Receiver Content Provider
 ## Android
 
 Package를 유니크하게 만든다.
+
+
+
+
+
+Service 의 Exported : 다른앱에서 이 서비스를 사용할수 있는지? 아니면 나만 쓸건지
+
+Enabled = 서비스 사용 가능성 여부
+
+
+
+Service 는 의도치 않게 종료되었을 떄 백단에서 혼자서 살아나서 일할수 있다. Activity 는 꺼버리면 불가능.
