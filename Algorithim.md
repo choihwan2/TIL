@@ -132,7 +132,7 @@ public class Main{
 [출처](https://youtu.be/vYquumk4nWw?list=PLBZBJbE_rGRU5PrgZ9NBHJwcaZsNpf8yD)
 
 
-- 피보나치 수열을 그냥 재귀로 풀게되면 시간ㅇ니 꽤나 오래 걸린다 그걸 해결해보자!
+- 피보나치 수열을 그냥 재귀로 풀게되면 시간이 꽤나 오래 걸린다 그걸 해결해보자!
 
 <img src="images/스크린샷 2020-03-07 오후 5.54.20.png" alt="dynamic_1" style="zoom:80%;" />
 > 그냥 재귀 함수로 구현시 같은 함수들을 몇번씩이나 호출하게 되는데 그때 마다 계산해주기 위해 많은 연산이 필요하게 된다.
@@ -140,14 +140,17 @@ public class Main{
 
 
 - 위를 해결하기 위해 첫번째로 Memoized Solution을 사용한다. 배열을 사용한 해결법
-<img src="images/스크린샷 2020-03-07 오후 5.54.20.png" alt="dynamic_2" style="zoom:80%;" />
+
+> 후에 반복적이게 사용되는 함수들의 결과값을 처음 계산때 배열에 저장해 두는것이다.
+
+- <img src="images/스크린샷 2020-03-07 오후 5.54.20.png" alt="dynamic_2" style="zoom:80%;" />>
 
 
 > 보면 함수가 호출되기전에 먼저 배열을 하나 갖고 있고 그 배열의 값을 참조해서 문제를 해결했다. 시간이 O(2ⁿ) 에서 O(n)으로 엄청나게 줄어든 것을 볼 수 있다.
 
 
 
-- 이것을 Bottom-Up Approach 왼쪽에서 오른쪽으로 쭉 올라가면서 사용하기 때문에 이렇게 부르는(맞나?) 것 같다. 그래서 좀 더 정리해보면.
+- 이것을 Bottom-Up Approach(상향식) 왼쪽에서 오른쪽으로 쭉 올라가면서 사용하기 때문에, 설명하자면 작은 값들을 차례대로 구하면서 큰값으로 가는 결과. 그래서 좀 더 정리해보면.
 <img src="images/스크린샷 2020-03-07 오후 6.01.38.png" alt="dynamic_3" style="zoom:80%;" />
 
 > 시간 계산 자체는 O(n)으로 동일하겠지만 그전에 배열을 선언해서 갖고있던 메모리 낭비와는 다르게 한번 사용후 버려지는 효율점이 있지 않을까 생각한다.
@@ -191,7 +194,7 @@ class Solution {
 
   자연 정렬이 되는 int나 String 같은 경우 배열과 찾고자 하는 key 값으로만으로 해결할 수 있지만 자연 정렬이 되지 않는 객체타입 일 경우 어떻게 할 수 있을까? 
 
-  바로 인터페이스 `Comparable<A>` 을 사용하는 것인데 이것을 중점으로 작성해보겠다.\
+  바로 인터페이스 `Comparator<A>` 을 사용하는 것인데 이것을 중점으로 작성해보겠다.
 
 - 전체 코드
 
@@ -279,4 +282,73 @@ static class PhysData {
 ```
 
  	이 부분일 것 같다. `PhysData`라는 클래스 내부에 `Comparator`를 리턴해주는 `HEIGHT_ORDER` 를 지정하고 `HeightOrderComparator` 안에서 `compare()` 라는 어떻게 비교해 줄 것인지에 대한 것을 구현해서 후에 사용할때 넘겨주기만 하면 된다.
+
+
+
+- 이 탐색에서 정렬부분 Compartor를 사용한 경우가 또 생겨서 정리해보려고 한다. [문제](https://www.acmicpc.net/problem/1931) 
+
+```java
+public class Problem1931 {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int input_num = Integer.parseInt(br.readLine());
+		ArrayList<Room> room = new ArrayList<>();
+		int answer = 0;
+
+		for (int i = 0; i < input_num; i++) {
+			String[] input = br.readLine().split(" ");
+			room.add(new Room(Integer.parseInt(input[0]), Integer.parseInt(input[1])));
+		}
+		Collections.sort(room, Room.ROOM_ORDER);
+
+		Room tempRoom = room.get(0);
+		answer++;
+		for(int i = 1; i< room.size(); i++) {
+			if(tempRoom.getEnd_t() <= room.get(i).getStart_t()) {
+				tempRoom = room.get(i);
+				answer++;
+			}
+		}
+		System.out.println(answer);
+	}
+
+	static class Room {
+		private int start_t;
+		private int end_t;
+
+		public int getStart_t() {
+			return start_t;
+		}
+
+		public void setStart_t(int start_t) {
+			this.start_t = start_t;
+		}
+
+		public int getEnd_t() {
+			return end_t;
+		}
+
+		public void setEnd_t(int end_t) {
+			this.end_t = end_t;
+		}
+
+		public Room(int s, int l) {
+			this.start_t = s;
+			this.end_t = l;
+		}
+		public static final Comparator<Room> ROOM_ORDER = new RoomOrderComparator();
+
+		private static class RoomOrderComparator implements Comparator<Room> {
+
+			@Override
+			public int compare(Room o1, Room o2) {
+				return o1.end_t > o2.end_t ? 1
+						: o1.end_t < o2.end_t ? -1 : o1.start_t > o2.start_t ? 1 : o1.start_t < o2.start_t ? -1 : 0;
+			}
+		}
+	}
+}
+```
+
+- 처음 알고리즘을 풀면서 Comparator를 사용해본거라 좀 지저분하다.. compare 메소드를 오버라이딩 하면서 저렇게 하는게 맞는건지도 헷갈리지만.. 후에 좀더 알게되면 수정해보도록 해야겠다.
 

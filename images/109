@@ -1,0 +1,1073 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+<link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/lib/lightbox/css/lightbox.min.css" /><link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/9c12a50bddda885ac1f1b8e3a563149d11b995a7/blogs/style/content/font.css?_version_=9c12a50bddda885ac1f1b8e3a563149d11b995a7" /><link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/9c12a50bddda885ac1f1b8e3a563149d11b995a7/blogs/style/content/content.css?_version_=9c12a50bddda885ac1f1b8e3a563149d11b995a7" /><!--[if lt IE 9]><script src="https://t1.daumcdn.net/tistory_admin/lib/jquery/jquery-1.12.4.min.js"></script><![endif]--><!--[if gte IE 9]>
+<!--><script src="https://t1.daumcdn.net/tistory_admin/lib/jquery/jquery-3.2.1.min.js"></script><!--<![endif]-->
+<script src="https://t1.daumcdn.net/tistory_admin/lib/lightbox/js/lightbox-plus-jquery.min.js"></script>
+<script>
+lightbox.options.fadeDuration = 200;
+lightbox.options.resizeDuration = 200;
+lightbox.options.wrapAround = false;
+lightbox.options.albumLabel = "%1 / %2";
+</script>
+<script>var tjQuery = jQuery.noConflict(true);</script><style type="text/css">.tt_article_useless_p_margin p {padding-top:0 !important;padding-bottom:0 !important;margin-top:0 !important;margin-bottom:0 !important;}</style><meta name="referrer" content="always"><link rel="icon" href="//t1.daumcdn.net/tistory_admin/static/top/favicon_0630.ico" /><link rel="apple-touch-icon" href="//img1.daumcdn.net/thumb/C180x180/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F216BE93B556DAACF0C">
+<link rel="apple-touch-icon" sizes="76x76" href="//img1.daumcdn.net/thumb/C76x76/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F216BE93B556DAACF0C">
+<link rel="apple-touch-icon" sizes="120x120" href="//img1.daumcdn.net/thumb/C120x120/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F216BE93B556DAACF0C">
+<link rel="apple-touch-icon" sizes="152x152" href="//img1.daumcdn.net/thumb/C152x152/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F216BE93B556DAACF0C"><meta name="description" content="첨부파일 항목을 클릭하면 새로운 액티비티를 띄워서 관련 뷰어를 실행하도록 했다. Nougat(누가) 버전을 대응하느라 FileProvider를 적용하면서, setFlags()를 addFlags()로 변경해야 관련 뷰어앱이 실행된다. in..">
+
+<!-- BEGIN OPENGRAPH -->
+<link rel="canonical" href="https://stickyny.tistory.com/109" /><meta property="og:type" content="article"><meta property="og:url" content="https://stickyny.tistory.com/109" ><meta property="og:site_name" content="Mindware 깍두기" ><meta property="og:title" content="Intent :: setFlags() VS addFlags()" ><meta name="by" content="sticky bit같은 존재가 되자 stickyNY" ><meta property="og:description" content="첨부파일 항목을 클릭하면 새로운 액티비티를 띄워서 관련 뷰어를 실행하도록 했다. Nougat(누가) 버전을 대응하느라 FileProvider를 적용하면서, setFlags()를 addFlags()로 변경해야 관련 뷰어앱이 실행된다. in.." ><meta property="og:image" content="https://t1.daumcdn.net/tistory_admin/static/images/openGraph/opengraph.png" ><meta property="article:section" content="IT 인터넷" >
+<!-- END OPENGRAPH -->
+
+
+
+<!-- BEGIN TWITTERCARD -->
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@TISTORY"><meta name="twitter:title" content="Intent :: setFlags() VS addFlags()" ><meta name="twitter:description" content="첨부파일 항목을 클릭하면 새로운 액티비티를 띄워서 관련 뷰어를 실행하도록 했다. Nougat(누가) 버전을 대응하느라 FileProvider를 적용하면서, setFlags()를 addFlags()로 변경해야 관련 뷰어앱이 실행된다. in.." ><meta property="twitter:image" content="https://t1.daumcdn.net/tistory_admin/static/images/openGraph/opengraph.png" >
+<!-- END TWITTERCARD -->
+
+
+
+<!-- BEGIN DAUMAPP -->
+<meta property="dg:plink" content="https://stickyny.tistory.com/109" ><meta name="plink" content="https://stickyny.tistory.com/109" ><meta name="title" content="Intent :: setFlags() VS addFlags()" ><meta name="article:media_name" content="Mindware 깍두기" ><meta property="article:mobile_url" content="https://stickyny.tistory.com/m/109" ><meta property="article:pc_url" content="https://stickyny.tistory.com/109" ><meta property="article:mobile_view_url" content="https://stickyny.tistory.com/m/109" ><meta property="article:pc_view_url" content="https://stickyny.tistory.com/109" ><meta property="article:talk_channel_view_url" content="https://stickyny.tistory.com/m/109" ><meta property="article:pc_service_home" content="https://www.tistory.com" ><meta property="article:mobile_service_home" content="https://www.tistory.com/m" ><meta property="article:txid" content="1882497_109" /><meta property="article:published_time" content="2017-04-18T15:36:58+09:00" ><meta property="og:regDate" content="20170418153658" ><meta property="article:modified_time" content="2017-04-18T15:36:58+09:00" >
+<!-- END DAUMAPP -->
+
+
+
+<!-- BEGIN STRUCTURED_DATA -->
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"BlogPosting","mainEntityOfPage":{"@id":"https:\/\/stickyny.tistory.com\/109"},"url":"https:\/\/stickyny.tistory.com\/109","headline":"Intent :: setFlags() VS addFlags()","description":"\ucca8\ubd80\ud30c\uc77c \ud56d\ubaa9\uc744 \ud074\ub9ad\ud558\uba74 \uc0c8\ub85c\uc6b4 \uc561\ud2f0\ube44\ud2f0\ub97c \ub744\uc6cc\uc11c \uad00\ub828 \ubdf0\uc5b4\ub97c \uc2e4\ud589\ud558\ub3c4\ub85d \ud588\ub2e4. Nougat(\ub204\uac00) \ubc84\uc804\uc744 \ub300\uc751\ud558\ub290\ub77c FileProvider\ub97c \uc801\uc6a9\ud558\uba74\uc11c, setFlags()\ub97c addFlags()\ub85c \ubcc0\uacbd\ud574\uc57c \uad00\ub828 \ubdf0\uc5b4\uc571\uc774 \uc2e4\ud589\ub41c\ub2e4. in..","author":{"@type":"Person","name":"sticky bit\uac19\uc740 \uc874\uc7ac\uac00 \ub418\uc790 stickyNY"},"image":{"@type":"ImageObject","url":"https:\/\/t1.daumcdn.net\/tistory_admin\/static\/images\/openGraph\/opengraph.png","width":"800px","height":"800px"},"datePublished":"20170418T15:36:58+09:00","dateModified":"20170418T15:36:58+09:00","publisher":{"@type":"Organization","name":"TISTORY","logo":{"@type":"ImageObject","url":"https:\/\/t1.daumcdn.net\/tistory_admin\/static\/images\/openGraph\/opengraph.png","width":"800px","height":"800px"}}}</script>
+<!-- END STRUCTURED_DATA -->
+
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<title>Intent :: setFlags() VS addFlags()</title>
+	<link rel="alternate" type="application/rss+xml" title="Mindware 깍두기" href="https://stickyny.tistory.com/rss" />
+
+	<link rel="stylesheet" href="https://tistory1.daumcdn.net/tistory/1882497/skin/style.css?_T_=1485144196">
+	<link rel="stylesheet" href="https://tistory1.daumcdn.net/tistory/1882497/skin/images/font.css">
+
+	<!--[if lt IE 9]>
+    <script src="http://t1.daumcdn.net/tistory_admin/lib/jquery-1.11.3.min.js"></script>
+	<![endif]-->
+	<!--[if gte IE 9]><!-->
+	<script src="http://t1.daumcdn.net/tistory_admin/lib/jquery-2.1.4.min.js"></script>
+	<!--<![endif]-->
+<meta http-equiv="imagetoolbar" content="no"/>
+<style type="text/css">
+		#daumSearchBox {
+			height: 21px;
+			background-image : url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bg_search2_2.gif);
+			margin: 5px auto ;
+			padding: 0;
+		}
+		#daumSearchBox input {
+			background: none;
+			margin : 0;
+			padding : 0;
+			border : 0;
+		}
+		#daumSearchBox #daumLogo {
+			width: 34px;
+			height: 21px;
+			float: left;
+			margin-right: 5px;
+			background-image : url(//i1.daumcdn.net/img-media/tistory/img/bg_search1_2_2010ci.gif);
+		}
+		#daumSearchBox #show_q {
+			background-color: transparent;
+			border: none;
+			font: 12px Gulim, Sans-serif;
+			color: #555;
+			margin-top: 4px;
+			margin-right: 15px;
+			float: left;
+		}
+
+		#daumSearchBox #show_btn {
+			background-image : url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bt_search_2.gif);
+			width: 37px;
+			height: 21px;
+			float: left;
+			margin:0;
+			cursor:pointer;
+			text-indent:-1000em;
+		}
+	</style>
+<link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/9c12a50bddda885ac1f1b8e3a563149d11b995a7/blogs/plugins/TistoryProfileLayer/style.css?_version_=9c12a50bddda885ac1f1b8e3a563149d11b995a7" />
+<script type="text/javascript" src="https://t1.daumcdn.net/tistory_admin/assets/blog/9c12a50bddda885ac1f1b8e3a563149d11b995a7/blogs/plugins/TistoryProfileLayer/profile.js?_version_=9c12a50bddda885ac1f1b8e3a563149d11b995a7"></script>
+	<style type="text/css">
+		.another_category { border: 1px solid #E5E5E5; padding: 10px 10px 5px; margin:10px 0; clear: both; }
+		.another_category h4 { font-size: 12px !important; margin: 0 !important; border-bottom: 1px solid #E5E5E5 !important; padding: 2px 0 6px !important; }
+		.another_category h4 a { font-weight: bold !important; }
+		.another_category table { table-layout: fixed; border-collapse: collapse; width: 100% !important; margin-top: 10px !important; }
+		* html .another_category table { width: auto !important; }
+		*:first-child+html .another_category table { width: auto !important; }
+		.another_category th, .another_category td { padding: 0 0 4px !important; }
+		.another_category th { text-align: left; font-size: 12px !important; font-weight: normal;  word-break: break-all; overflow: hidden; line-height: 1.5; }
+		.another_category td { text-align: right; width: 80px; font-size: 11px; }
+		.another_category th a { font-weight: normal; text-decoration: none; border: none !important; }
+		.another_category th a.current{ font-weight: bold; text-decoration: none !important; border-bottom: 1px solid !important; }
+		.another_category th span { font-weight: normal; text-decoration: none; font: 10px Tahoma, Sans-serif; border: none !important; }
+
+		.another_category_color_gray, .another_category_color_gray h4 { border-color: #E5E5E5 !important; }
+		.another_category_color_gray * { color: #909090 !important; }
+		.another_category_color_gray th a.current{border-color:#909090 !important;}
+		.another_category_color_gray h4, .another_category_color_gray h4 a { color: #737373 !important; }
+
+
+		.another_category_color_red, .another_category_color_red h4 { border-color: #F6D4D3 !important;  }
+		.another_category_color_red * { color: #E86869 !important; }
+		.another_category_color_red th a.current{border-color:#E86869 !important;}
+		.another_category_color_red h4, .another_category_color_red h4 a { color: #ED0908 !important; }
+
+
+		.another_category_color_green, .another_category_color_green h4 { border-color: #CCE7C8 !important; }
+		.another_category_color_green * { color: #64C05B !important; }
+		.another_category_color_green th a.current{border-color:#64C05B !important;}
+		.another_category_color_green h4, .another_category_color_green h4 a { color: #3EA731 !important; }
+
+
+		.another_category_color_blue, .another_category_color_blue h4 { border-color: #C8DAF2 !important; }
+		.another_category_color_blue * { color: #477FD6 !important; }
+		.another_category_color_blue th a.current{border-color:#477FD6 !important;}
+		.another_category_color_blue h4, .another_category_color_blue h4 a { color: #1960CA !important; }
+
+
+		.another_category_color_violet, .another_category_color_violet h4 { border-color: #E1CEEC !important;  }
+		.another_category_color_violet * { color:#9D64C5 !important; }
+		.another_category_color_violet th a.current{border-color:#9D64C5 !important;}
+		.another_category_color_violet h4, .another_category_color_violet h4 a { color: #7E2CB5 !important; }
+	</style>
+<script type="text/javascript">
+        
+        window.TistoryBlog = {
+            basePath: "",
+            url: "https://stickyny.tistory.com",
+            tistoryUrl: "https://stickyny.tistory.com",
+			manageUrl: 'https://stickyny.tistory.com/manage',
+            token: 'kApbbgvq65uz0yRdbMpM4Q=='
+        };
+        var servicePath = "";
+        var blogURL = "";
+    </script>
+
+	<script> (function() { window.orgjQuery = window.jQuery; window.jQuery = tjQuery })()</script>
+    <script type="text/javascript" defer src=https://t1.daumcdn.net/tistory_admin/assets/blog/9c12a50bddda885ac1f1b8e3a563149d11b995a7/blogs/script/reaction/reaction-button-container.min.js?_version_=9c12a50bddda885ac1f1b8e3a563149d11b995a7></script>
+    <script src="https://t1.daumcdn.net/section/uoclike/news/uoclike.min.js"></script>
+	<script> (function() { window.jQuery = window.orgjQuery; delete window.orgjQuery })()</script>
+    <script>
+		(function($) {
+			$.fn.extend({
+				size: function () {
+					return this.length
+				}
+			});
+			$.fn.UOCLike.defaults.updateServiceCategory = true;
+					})(tjQuery)
+    </script>
+        <script type="text/javascript" src="https://t1.daumcdn.net/tistory_admin/assets/blog/9c12a50bddda885ac1f1b8e3a563149d11b995a7/blogs/script/_/base.js?_version_=9c12a50bddda885ac1f1b8e3a563149d11b995a7"></script>
+        <link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/9c12a50bddda885ac1f1b8e3a563149d11b995a7/blogs/style/dialog.css?_version_=9c12a50bddda885ac1f1b8e3a563149d11b995a7"/>
+            <link rel="stylesheet" type="text/css" href="//t1.daumcdn.net/tistory_admin/www/style/top/font.css">
+    <link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/9c12a50bddda885ac1f1b8e3a563149d11b995a7/blogs/style/postBtn.css?_version_=9c12a50bddda885ac1f1b8e3a563149d11b995a7"/>
+        <link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/9c12a50bddda885ac1f1b8e3a563149d11b995a7/blogs/style/component/tistory.css?_version_=9c12a50bddda885ac1f1b8e3a563149d11b995a7" />
+        <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script></head>
+
+<body id="tt-body-page">
+<script type="text/javascript">
+	(function() {
+		if (!window.T) {
+			window.T = {}
+		}
+		window.T.config = {"TOP_SSL_URL":"https:\/\/www.tistory.com","PREVIEW":false,"ROLE":"guest","PREV_PAGE":"\/110","NEXT_PAGE":"\/108","BLOG":{"isDormancy":false,"title":"Mindware \uae4d\ub450\uae30"},"NEED_COMMENT_LOGIN":true,"COMMENT_LOGIN_CONFIRM_MESSAGE":"\uc774 \ube14\ub85c\uadf8\ub294 \ub85c\uadf8\uc778\ud55c \uc0ac\uc6a9\uc790\uc5d0\uac8c\ub9cc \ub313\uae00 \uc791\uc131\uc744 \ud5c8\uc6a9\ud588\uc2b5\ub2c8\ub2e4. \uc9c0\uae08 \ub85c\uadf8\uc778\ud558\uc2dc\uaca0\uc2b5\ub2c8\uae4c?","LOGIN_URL":"https:\/\/www.tistory.com\/auth\/login\/?redirectUrl=http%3A%2F%2Fstickyny.tistory.com%2F109","DEFAULT_URL":"https:\/\/stickyny.tistory.com","USER":{"name":null,"homepage":null},"ROLE_GROUP":"visitor","SUBSCRIPTION":{"status":"none","isConnected":false,"isProcessing":false,"isPending":false,"isWait":false,"isNone":true},"IS_LOGIN":false,"HAS_BLOG":false,"TOP_URL":"http:\/\/www.tistory.com"};
+		window.appInfo = {"domain":"tistory.com","topUrl":"https:\/\/www.tistory.com","loginUrl":"https:\/\/www.tistory.com\/auth\/login","logoutUrl":"https:\/\/www.tistory.com\/auth\/logout"};
+
+        window.initData = {};
+        
+	})();
+</script>
+
+<script type="text/javascript" src="https://t1.daumcdn.net/tistory_admin/assets/blog/9c12a50bddda885ac1f1b8e3a563149d11b995a7/blogs/script/blog/common.js?_version_=9c12a50bddda885ac1f1b8e3a563149d11b995a7"></script>
+<div style="margin:0; padding:0; border:none; background:none; float:none; clear:none; z-index:0"></div>
+
+<div id="dkIndex">
+    <!--웹접근성용 바로가기 링크 모음-->
+    <a href="#dkBody">본문 바로가기</a>
+</div>
+<div id="dkWrap" class="wrap_skin">
+    <!-- 카테고리버튼 클릭시 'navi_on' 클래스 부여 -->
+    <div id="dkHead" role="banner" class="area_head">
+        <h1 class="screen_out">Mindware 깍두기</h1>
+        <button type="button" class="btn_cate">
+            <span class="ico_skin ico_cate">카테고리</span>
+        </button>
+        <div class="area_search ">
+            <button type="button" class="btn_search">
+                <span class="ico_skin ico_search">검색하기</span>
+            </button>
+			
+	            <form action="#" method="get" class="frm_search box_search" onsubmit="try{window.location.href='/search/'+looseURIEncode(document.getElementsByName('search')[0].value);document.getElementsByName('search')[0].value='';return false;}catch(e){}">
+	                <fieldset>
+	                    <legend class="screen_out">검색하기</legend>
+	                    <label for="search" class="lab_search screen_out">Search</label>
+	                    <input type="text" name="search" id="search" class="tf_search" placeholder="Search" value="" data-value="">
+	                    <span class="ico_skin ico_search"></span>
+	                </fieldset>
+	            </form>
+			
+        </div>
+        <div class="area_profile">
+            <div class="tit_post">
+                <a href="/" class="link_post">Mindware 깍두기</a>
+            </div>
+            <span class="thumb_profile">
+                <img src="https://t1.daumcdn.net/cfile/tistory/216BE93B556DAACF0C" class="img_profile" alt="프로필사진">
+            </span>
+            <span class="txt_profile">stickyNY</span>
+        </div>
+    </div>
+    <hr class="hide">
+    <div id="dkContent" class="cont_skin" role="main">
+        <div id="cMain">
+            <div id="mFeature" class="wrap_sub">
+                <div class="cont_sub">
+                    <div class="inner_sub">
+                        <div class="area_sub">
+                            <div role="navigation" class="area_navi">
+                                <ul class="tt_category">
+	<li class="">
+		<a class="link_tit" href="/category">
+			분류 전체보기							<span class="c_cnt">(111)</span>
+			
+					</a>
+
+				<ul class="category_list">
+							<li class="">
+					<a class="link_item" href="/category/%EC%9E%90%EA%B7%B9%EC%A0%9C">
+						자극제													<span class="c_cnt">(1)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/Android">
+						Android													<span class="c_cnt">(62)</span>
+						
+											</a>
+
+										<ul class="sub_category_list">
+													<li class="">
+								<a class="link_sub_item" href="/category/Android/%ED%98%84%EC%97%85%EC%97%90%20%ED%88%AC%EC%9E%85%EB%90%98%EA%B8%B0%EC%9C%84%ED%95%9C%20STUDY">
+									현업에 투입되기위한 STUDY
+																			<span class="c_cnt">(7)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="/category/Android/Knowhow">
+									Knowhow
+																			<span class="c_cnt">(23)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="/category/Android/Bottom-Up">
+									Bottom-Up
+																			<span class="c_cnt">(5)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="/category/Android/App%20Components">
+									App Components
+																			<span class="c_cnt">(10)</span>
+									
+																	</a>
+							</li>
+											</ul>
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/Git%20%26%20SourceTree">
+						Git &amp; SourceTree													<span class="c_cnt">(5)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">
+						프로그래밍													<span class="c_cnt">(15)</span>
+						
+											</a>
+
+										<ul class="sub_category_list">
+													<li class="">
+								<a class="link_sub_item" href="/category/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/PHP">
+									PHP
+																			<span class="c_cnt">(4)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="/category/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Laravel">
+									Laravel
+																			<span class="c_cnt">(4)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="/category/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Node%20%26%20Express">
+									Node &amp; Express
+																			<span class="c_cnt">(0)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="/category/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Javascript%20%2B%20jQuery">
+									Javascript + jQuery
+																			<span class="c_cnt">(2)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="/category/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/React%20JS">
+									React JS
+																			<span class="c_cnt">(1)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="/category/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%EC%B1%97%EB%B4%87">
+									챗봇
+																			<span class="c_cnt">(0)</span>
+									
+																	</a>
+							</li>
+											</ul>
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%EB%B9%A8%EB%A6%AC%20%ED%81%AC%EC%9E%90%3A%3A%EA%B0%9C%EC%9D%B8%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8">
+						빨리 크자::개인 프로젝트													<span class="c_cnt">(3)</span>
+						
+											</a>
+
+										<ul class="sub_category_list">
+													<li class="">
+								<a class="link_sub_item" href="/category/%EB%B9%A8%EB%A6%AC%20%ED%81%AC%EC%9E%90%3A%3A%EA%B0%9C%EC%9D%B8%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%ED%8F%89%EC%83%9D%20%EB%A9%94%EC%9D%B4%ED%8A%B8%20%EA%B0%80%EA%B3%84%EB%B6%80%20%EC%95%B1">
+									평생 메이트 가계부 앱
+																			<span class="c_cnt">(2)</span>
+									
+																	</a>
+							</li>
+											</ul>
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%EC%97%85%EB%AC%B4%20%EA%B4%80%EB%A0%A8">
+						업무 관련													<span class="c_cnt">(5)</span>
+						
+											</a>
+
+										<ul class="sub_category_list">
+													<li class="">
+								<a class="link_sub_item" href="/category/%EC%97%85%EB%AC%B4%20%EA%B4%80%EB%A0%A8/%EA%B7%B8%EB%82%A0%EC%9D%98%20%EB%B0%A5%EA%B0%92">
+									그날의 밥값
+																			<span class="c_cnt">(3)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="/category/%EC%97%85%EB%AC%B4%20%EA%B4%80%EB%A0%A8/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8">
+									프로젝트
+																			<span class="c_cnt">(2)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="/category/%EC%97%85%EB%AC%B4%20%EA%B4%80%EB%A0%A8/%ED%9A%8C%EC%9D%98%EB%A1%9D">
+									회의록
+																			<span class="c_cnt">(0)</span>
+									
+																	</a>
+							</li>
+											</ul>
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%EA%B6%81%EA%B8%88%ED%95%B4%EC%9A%94">
+						궁금해요													<span class="c_cnt">(1)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%EC%9C%A0%EC%9A%A9%ED%95%9C%20%EC%A0%95%EB%B3%B4">
+						유용한 정보													<span class="c_cnt">(2)</span>
+						
+											</a>
+
+										<ul class="sub_category_list">
+													<li class="">
+								<a class="link_sub_item" href="/category/%EC%9C%A0%EC%9A%A9%ED%95%9C%20%EC%A0%95%EB%B3%B4/%EC%9D%80%EC%9D%B8%EB%93%A4%EC%9D%98%20%EB%A7%90%EC%94%80">
+									은인들의 말씀
+																			<span class="c_cnt">(0)</span>
+									
+																	</a>
+							</li>
+											</ul>
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%EC%83%9D%EC%86%8C%ED%95%9C%20%EC%9A%A9%EC%96%B4">
+						생소한 용어													<span class="c_cnt">(1)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%ED%95%98%EC%9A%B0%EC%9C%84%EC%9E%89%EA%B8%80%EB%A6%AC%EC%89%AC%20White%2BYellow">
+						하우위잉글리쉬 White+Yellow													<span class="c_cnt">(1)</span>
+						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%EC%B0%B0%EB%82%98%EB%8B%B4%EA%B8%B0">
+						찰나담기													<span class="c_cnt">(13)</span>
+						
+											</a>
+
+					
+				</li>
+					</ul>
+			</li>
+</ul>
+								<a href="/guestbook" class="link_guestbook">Guestbook</a>
+                            </div>
+                            <div class="wrap_etc">
+                                <div class="col_aside left_side">
+                                
+                                        <!-- 공지사항 -->
+										
+		                                    <div class="box_aside">
+		                                        <strong class="tit_aside">Notice</strong>
+		                                        <ul class="list_board">
+		                                            
+		                                        </ul>
+		                                    </div>
+										
+                                    
+                                        <!-- 최근에 올라온 글 -->
+                                    <div class="box_aside">
+                                        <strong class="tit_aside">Recent Posts</strong>
+                                        <ul class="list_board">
+                                            
+                                            <li><a href="/129" class="link_board">정규식에서 특정 단어 예외..</a></li>
+                                            
+
+                                            <li><a href="/121" class="link_board">자바스크립트 날짜 Date 객..</a></li>
+                                            
+
+                                            <li><a href="/120" class="link_board">setState() 저장되지 않을때</a></li>
+                                            
+
+                                            <li><a href="/119" class="link_board">자바스크립트 연관배열로..</a></li>
+                                            
+                                        </ul>
+                                    </div>
+                                    
+                                        <!-- 최근에 달린 댓글 -->
+                                    <div class="box_aside">
+                                        <strong class="tit_aside">Recent Comments</strong>
+                                        <ul class="list_board">
+                                            
+											<li><a href="/61#comment15931219" class="link_board">다행입니다~</a></li>
+    										
+
+											<li><a href="/61#comment15931218" class="link_board">다행이에요~</a></li>
+    										
+
+											<li><a href="/61#comment15931005" class="link_board">재설치 할뻔했는데 정말 감사..</a></li>
+    										
+
+											<li><a href="/71#comment15906216" class="link_board">http://akaisun.tistory.com/4</a></li>
+    										
+                                        </ul>
+                                    </div>
+                                    
+                                        <!-- 링크 -->
+                                    <div class="box_aside">
+                                        <strong class="tit_aside">Link</strong>
+                                        <ul class="list_board">
+                                            
+                                            <li><a href="https://whitecode.tistory.com" class="link_board" target="_blank">White Code</a></li>
+                                            
+
+                                            <li><a href="https://samse.tistory.com" class="link_board" target="_blank">고 투 더 멘토</a></li>
+                                            
+
+                                            <li><a href="https://seolranblog.tistory.com" class="link_board" target="_blank">설란블로그❤</a></li>
+                                            
+
+                                            <li><a href="https://answerofgod.tistory.com" class="link_board" target="_blank">The Answer's Engineering Blog</a></li>
+                                            
+
+                                            <li><a href="https://programmingsummaries.tistory.com" class="link_board" target="_blank">감성 프로그래밍 | 감성 프로..</a></li>
+                                            
+
+                                            <li><a href="https://kangmori.tistory.com" class="link_board" target="_blank">KANGMORI's BLOG</a></li>
+                                            
+
+                                            <li><a href="https://coderlife.tistory.com" class="link_board" target="_blank">프로그래머 삶</a></li>
+                                            
+
+                                            <li><a href="https://dark0946.tistory.com" class="link_board" target="_blank">&quot;끄적끄적&quot; 히야</a></li>
+                                            
+
+                                            <li><a href="https://nemobal.tistory.com" class="link_board" target="_blank">네모발창고</a></li>
+                                            
+
+                                            <li><a href="http://thdev.net" class="link_board" target="_blank">꿈 많은 개발자가 되자! Tae-h..</a></li>
+                                            
+                                        </ul>
+                                    </div>
+                                    
+                                </div>
+
+
+                                <div class="col_aside right_side">
+                                
+                                        <!-- 달력 -->
+                                    <div class="box_aside box_calendar">
+                                        		<table class="tt-calendar" cellpadding="0" cellspacing="1" style="width: 100%; table-layout: fixed">
+			<caption class="cal_month">
+				<a href="/archive/202002" title="1개월 앞의 달력을 보여줍니다.">&laquo;</a>
+				&nbsp;
+				<a href="/archive/202003"
+				   title="현재 달의 달력을 보여줍니다.">2020/03</a>
+				&nbsp;
+				<a href="/archive/202004" title="1개월 뒤의 달력을 보여줍니다.">&raquo;</a>
+			</caption>
+			<thead>
+			<tr>
+				<th class="cal_week2">일</th>
+				<th class="cal_week1">월</th>
+				<th class="cal_week1">화</th>
+				<th class="cal_week1">수</th>
+				<th class="cal_week1">목</th>
+				<th class="cal_week1">금</th>
+				<th class="cal_week1">토</th>
+			</tr>
+			</thead>
+			<tbody>
+					<tr class="cal_week">
+			<td class=" cal_day cal_day_sunday cal_day3">1</td>
+			<td class=" cal_day cal_day3">2</td>
+			<td class=" cal_day cal_day3">3</td>
+			<td class=" cal_day cal_day3">4</td>
+			<td class=" cal_day cal_day3">5</td>
+			<td class=" cal_day cal_day3">6</td>
+			<td class=" cal_day cal_day3">7</td>
+		</tr>
+		<tr class="cal_week">
+			<td class=" cal_day cal_day_sunday cal_day3">8</td>
+			<td class=" cal_day cal_day3">9</td>
+			<td class=" cal_day cal_day3">10</td>
+			<td class=" cal_day cal_day3">11</td>
+			<td class=" cal_day cal_day3">12</td>
+			<td class=" cal_day cal_day3">13</td>
+			<td class=" cal_day cal_day3">14</td>
+		</tr>
+		<tr class="cal_week">
+			<td class=" cal_day cal_day_sunday cal_day3">15</td>
+			<td class=" cal_day cal_day3">16</td>
+			<td class=" cal_day cal_day3">17</td>
+			<td class=" cal_day cal_day3">18</td>
+			<td class=" cal_day cal_day3">19</td>
+			<td class=" cal_day cal_day3">20</td>
+			<td class=" cal_day cal_day3">21</td>
+		</tr>
+		<tr class="cal_week">
+			<td class=" cal_day cal_day_sunday cal_day3">22</td>
+			<td class=" cal_day cal_day3">23</td>
+			<td class=" cal_day cal_day3">24</td>
+			<td class=" cal_day cal_day3">25</td>
+			<td class=" cal_day cal_day3">26</td>
+			<td class=" cal_day cal_day3">27</td>
+			<td class=" cal_day cal_day3">28</td>
+		</tr>
+		<tr class="cal_week cal_current_week">
+			<td class=" cal_day cal_day_sunday cal_day3">29</td>
+			<td class=" cal_day cal_day3">30</td>
+			<td class=" cal_day cal_day4">31</td>
+			<td class="cal_day2">&nbsp;</td>
+			<td class="cal_day2">&nbsp;</td>
+			<td class="cal_day2">&nbsp;</td>
+			<td class="cal_day2">&nbsp;</td>
+		</tr>
+			</tbody>
+		</table>
+		
+                                    </div>
+                                    
+                                        <!-- 태그 클라우드 -->
+                                    <div class="box_aside box_tag">
+                                        <strong class="tit_aside">Tags</strong>
+                                        <ul class="list_tag">
+                                            
+                                        </ul>
+                                        <a href="/tag" class="link_more">more</a>
+                                    </div>
+                                    
+                                        <!-- 글 보관함 -->
+                                    <div class="box_aside box_archive">
+                                        <strong class="tit_aside">Archives</strong>
+                                        <ul class="list_keep">
+                                            
+                                            <li><a href="/archive/201904" class="link_keep">2019/04</a> (1)</li>
+                                            
+
+                                            <li><a href="/archive/201802" class="link_keep">2018/02</a> (1)</li>
+                                            
+
+                                            <li><a href="/archive/201712" class="link_keep">2017/12</a> (2)</li>
+                                            
+
+                                            <li><a href="/archive/201709" class="link_keep">2017/09</a> (1)</li>
+                                            
+                                        </ul>
+                                    </div>
+                                    
+                                        <!-- 방문자수 -->
+                                    <div class="box_aside box_visitor">
+                                        <dl class="list_visitor">
+                                            <dt>Today</dt>
+                                            <dd>38</dd>
+                                        </dl>
+                                        <dl class="list_total">
+                                            <dt>Total</dt>
+                                            <dd>75,786</dd>
+                                        </dl>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="ico_skin btn_close">닫기</button>
+
+                    <strong class="screen_out">관리 메뉴</strong>
+                    <ul class="list_control">
+                        <li><a href="https://stickyny.tistory.com/manage/entry/post" class="ico_skin link_write" title="글쓰기">글쓰기</a></li>
+                        <li><a href="/guestbook" class="ico_skin link_memo" title="방명록">방명록</a></li>
+                        <li><a href="https://stickyny.tistory.com/rss" class="ico_skin link_rss" title="RSS">RSS</a></li>
+                        <li><a href="https://stickyny.tistory.com/manage" class="ico_skin link_manage" title="관리">관리</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="mArticle" class="article_skin">
+
+				
+
+				<div class="index_title">
+					<h2 class="tit_skin"><span class="txt_title">Mindware 깍두기</span></h2>
+				</div>
+
+                
+					
+
+
+                    
+                        <h2 id="dkBody" class="screen_out">Intent :: setFlags() VS addFlags() 본문</h2>
+                        <div class="area_title">
+                            <strong class="tit_category"><a href="/category/Android/Bottom-Up">Android/Bottom-Up</a></strong>
+                            <h3 class="tit_post">Intent :: setFlags() VS addFlags()</h3>
+                            <span class="info_post">sticky bit같은 존재가 되자 stickyNY
+                                <span class="txt_bar"></span>2017. 4. 18. 15:36
+								
+							</span>
+                        </div>
+
+                        <div class="area_view">
+                            <div class="tt_article_useless_p_margin"><p>첨부파일 항목을 클릭하면 새로운 액티비티를 띄워서 관련 뷰어를 실행하도록 했다.</p><p>Nougat(누가) 버전을 대응하느라&nbsp;FileProvider를 적용하면서, setFlags()를 addFlags()로 변경해야 관련 뷰어앱이 실행된다.&nbsp;</p><p><br /></p><p>&nbsp; &nbsp; &nbsp; &nbsp; intent.<span style="background-color: rgb(31, 175, 218); color: rgb(255, 255, 255);">setFlags</span>(Intent.FLAG_ACTIVITY_NEW_TASK);</p><div><div>&nbsp; &nbsp; &nbsp; &nbsp; intent.<span style="background-color: rgb(217, 65, 141); color: rgb(255, 255, 255);">addFlags</span>(Intent.FLAG_ACTIVITY_NEW_TASK);</div></div><div><br /></div><div><br /></div><div><br /></div><div><br /></div><div><br /></div><div>이 둘은 무슨 차이인거지?</div><div><br /></div><div><br /></div><div><br /></div><div>우선 <u>flag</u>에 대해서 찾아봤다.</div><div style="margin-left: 2em;">: startActivity()를 호출할때, 새로운 액티비티를 현재 태스크에 넣을것인지 정의하는 값이다.</div><div><br /></div><div>- FLAG_ACTIVITY_NEW_TASK</div><div style="margin-left: 2em;">&nbsp;: 액티비티를 새로운 태스크에서 실행한다.</div><div style="margin-left: 2em;">실행하려는 액티비티에 대한 태스크가 이미 실행중이면, 그 태스크는 자신의 마지막 restore된 state로&nbsp;foreground가 된다. 그리고 액티비티는 onNewIntent() 콜백에서 새로운 인텐트를 받는다.</div><div style="margin-left: 2em;">launchMode의 singleTask 값과 같은 동작을 한다.</div><div>- FLAG_ACTIVITY_SINGLE_TOP</div><div style="margin-left: 2em;">&nbsp;: 실행된 액티비티가 현재 액티비티이면(백스택의 최상위이면), 액티비티의 새로운 객체를 생성하는 대신에 존재하는 액티비티 객체가 onNewIntent() 콜백의 호출을 받는다.</div><div style="margin-left: 2em;">launchMode의 singleTop 값과 같은 동작을 한다.&nbsp;</div><div>- FLAG_ACTIVITY_CLEAR_TOP</div><div style="margin-left: 2em;">&nbsp;: 실행된 액티비티가 이미 현재 태스크에서 실행중이면, 그 액티비티의 새로운 객체를 실행하는 대신에 태스크의 top에 있는 다른 모든 액티비티들이 destroy된다. 그리고 이 인텐트는 onNewIntent() 콜백을 통해 최상위로 resume된&nbsp;액티비티 객체에 전달된다.</div><div style="margin-left: 2em;">launchMode의 값과 일치하는것이 없다.</div><div><br /></div><div><br /></div><div><br /></div><div><br /></div><div><br /></div><div><u>setFlags() VS addFlags()</u></div><div><br /></div><div><br /></div><div><br /></div><p>setFlags()를 사용하면 오래된 flag 전체를 대체한다.</p><p>addFlags()를 사용하면 새로운 특정 flag만&nbsp;붙인다.</p><p><br /></p><p>flag는 단지 2진수로 이루어진 integer다.</p><p>addFlags()는 | operator를 사용해서 유저가 입력한 integer를 붙인다.</p><div class="container_postbtn #post_button_group">
+    <div class="postbtn_like">
+        
+    <script>
+        window.ReactionButtonType = 'reaction';
+        window.ReactionApiUrl = '//stickyny.tistory.com/reaction';
+        window.ReactionReqBody = {
+            entryId: 109        }
+    </script>
+    <div class="wrap_btn" id=reaction-109></div>
+    <script src=https://t1.daumcdn.net/tistory_admin/assets/blog/9c12a50bddda885ac1f1b8e3a563149d11b995a7/blogs/script/reaction/reaction-button-container.min.js?_version_=9c12a50bddda885ac1f1b8e3a563149d11b995a7></script>
+        <div class="wrap_btn wrap_btn_share">
+    <button type="button" class="btn_post sns_btn btn_share" data-thumbnail-url="https://t1.daumcdn.net/tistory_admin/static/images/openGraph/opengraph.png" data-title="Intent :: setFlags() VS addFlags()" data-description="첨부파일 항목을 클릭하면 새로운 액티비티를 띄워서 관련 뷰어를 실행하도록 했다. Nougat(누가) 버전을 대응하느라 FileProvider를 적용하면서, setFlags()를 addFlags()로 변경해야 관련 뷰어앱이 실행된다. in.." data-profile-image="https://t1.daumcdn.net/cfile/tistory/216BE93B556DAACF0C" data-profile-name="sticky bit같은 존재가 되자 stickyNY" data-pc-url="https://stickyny.tistory.com/109" data-relative-pc-url="/109" data-blog-title="Mindware 깍두기">
+        <span class="ico_postbtn ico_share">공유하기</span>
+    </button>
+</div>
+                <div class="wrap_btn wrap_btn_etc" data-entry-id="109" data-entry-visibility="public" data-category-visibility="public">
+    <button type="button" class="btn_post btn_etc2"><span class="ico_postbtn ico_etc">글 요소</span></button>
+</div>
+    </div>
+    <button type="button" class="btn_menu_toolbar btn_subscription  #subscribe" data-blog-id="1882497" data-url="https://stickyny.tistory.com/109" data-device="web_pc">
+    <em class="txt_state">구독하기</em>
+    <strong class="txt_tool_id">Mindware 깍두기</strong>
+    <span class="img_common_tistory ico_check_type1"></span>
+</button>
+    <div class="postbtn_ccl" data-ccl-type="1">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ko" target="_blank" class="link_ccl">
+        <span class="bundle_ccl">
+            <span class="ico_postbtn ico_ccl1">저작자표시</span><span class="ico_postbtn ico_ccl2">비영리</span><span class="ico_postbtn ico_ccl3">변경금지</span>        </span>
+    </a>
+</div>
+    <!--
+<rdf:RDF xmlns="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <Work rdf:about="">
+        <license rdf:resource="http://creativecommons.org/licenses/by-nc-nd/2.0/kr/" />
+    </Work>
+    <License rdf:about="http://creativecommons.org/licenses/by-nc-nd/">
+        <permits rdf:resource="http://web.resource.org/cc/Reproduction"/>
+        <permits rdf:resource="http://web.resource.org/cc/Distribution"/>
+        <requires rdf:resource="http://web.resource.org/cc/Notice"/>
+        <requires rdf:resource="http://web.resource.org/cc/Attribution"/>
+                        <prohibits rdf:resource="http://web.resource.org/cc/CommercialUse"/>
+            </License>
+</rdf:RDF>
+-->
+</div><div class="another_category another_category_color_gray">
+<h4>'<a href="/category/Android">Android</a>&nbsp;>&nbsp;<a href="/category/Android/Bottom-Up">Bottom-Up</a>' 카테고리의 다른 글</h4>
+<table>
+<tr>
+<th>
+<a href="/110?category=613610" >Nougat 7+ 대응, FileProvider</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2017.04.18</td>
+</tr>
+<tr>
+<th>
+<a href="/109?category=613610"  class ="current" >Intent :: setFlags() VS addFlags()</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2017.04.18</td>
+</tr>
+<tr>
+<th>
+<a href="/93?category=613610" >Bitmap 또는 BitmapFactory.decodeFile 이 null을 리턴할 때</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2017.02.15</td>
+</tr>
+<tr>
+<th>
+<a href="/30?category=613610" >아마도 이건 자바 3바퀴</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2015.07.06</td>
+</tr>
+<tr>
+<th>
+<a href="/7?category=613610" >What is the &quot;Gradle&quot;?</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2015.06.08</td>
+</tr>
+</table></div></div>
+                        </div>
+                        <div class="area_etc">
+                            
+
+                            <strong class="screen_out">공유하기 링크</strong>
+                            <ul class="list_share">
+                                <li><a href="#none" class="ico_skin link_fb" data-service="facebook">페이스북</a></li>
+                                <li><a href="#none" class="ico_skin link_ks" data-service="kakaostory">카카오스토리</a></li>
+                                <li><a href="#none" class="ico_skin link_tw" data-service="twitter">트위터</a></li>
+                            </ul>
+                        </div>
+
+						
+							<div class="area_related">
+								<strong class="tit_related">'Android/Bottom-Up' Related Articles</strong>
+								<ul class="list_related">
+									
+										<li class="text_type">
+											<a href="/110?category=613610" class="link_related">
+												
+												<span class="txt_related">Nougat 7+ 대응, FileProvider</span>
+												<span class="date_related">2017.04.18</span>
+												<span class="frame_related"></span>
+											</a>
+										</li>
+									
+										<li class="text_type">
+											<a href="/93?category=613610" class="link_related">
+												
+												<span class="txt_related">Bitmap 또는 BitmapFactory.decodeFile 이 null을 리턴할 때</span>
+												<span class="date_related">2017.02.15</span>
+												<span class="frame_related"></span>
+											</a>
+										</li>
+									
+										<li class="text_type">
+											<a href="/30?category=613610" class="link_related">
+												
+												<span class="txt_related">아마도 이건 자바 3바퀴</span>
+												<span class="date_related">2015.07.06</span>
+												<span class="frame_related"></span>
+											</a>
+										</li>
+									
+										<li class="text_type">
+											<a href="/7?category=613610" class="link_related">
+												
+												<span class="txt_related">What is the &quot;Gradle&quot;?</span>
+												<span class="date_related">2015.06.08</span>
+												<span class="frame_related"></span>
+											</a>
+										</li>
+									
+								</ul>
+								<a href="/category/Android/Bottom-Up" class="link_more">more</a>
+							</div>
+						
+
+                        <div class="area_reply">
+                            <strong class="tit_reply"><span id="commentCount109_0">0</span>  Comments</strong>
+                            <div id="entry109Comment">
+                                
+
+                                <form method="post" action="/comment/add/109" onsubmit="return false" style="margin: 0">
+                                    <fieldset class="fld_reply">
+                                        <legend class="screen_out">댓글쓰기 폼</legend>
+                                        
+        									
+                                                <div class="writer_info">
+                                                    <span class="info_name">
+                                                        <label for="name" class="lab_info screen_out">이름</label>
+                                                        <span class="wrap_info">
+                                                            <input type="text" name="name" id="name" class="inp_info" placeholder="Name" tabindex="1">
+                                                        </span>
+                                                    </span>
+                                                    <span class="info_pw ">
+                                                        <label for="password" class="lab_info screen_out">비밀번호</label>
+                                                        <span class="wrap_info">
+                                                            <input type="password" name="password" id="password" class="inp_info" placeholder="Password" tabindex="2">
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                            
+                                            <div class="writer_check">
+                                                <span class="check_secret ">
+                                                    <input type="checkbox" name="secret" id="secret" class="inp_secret" tabindex="4">
+                                                    <label for="secret" class="lab_secret">
+                                                        <span class="ico_skin ico_check"></span>
+                                                        Secret
+                                                    </label>
+                                                </span>
+                                            </div>
+                                        
+
+                                        <div class="reply_write ">
+                                            <label for="comment" class="lab_write screen_out">내용</label>
+                                            <textarea name="comment" id="comment" class="tf_reply" placeholder="여러분의 소중한 댓글을 입력해주세요" tabindex="3"></textarea>
+                                        </div>
+
+                                        <div class="writer_btn">
+                                            <button type="submit" class="btn_enter" onclick="addComment(this, 109); return false;" tabindex="5">Send</button>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div><script type="text/javascript">loadedComments[109]=true;findFragmentAndHighlight(109)</script>
+                        </div>
+
+
+                    
+                
+
+				
+
+				
+
+				
+
+				
+
+                
+    				<div class="area_paging">
+    					<span class="inner_paging">
+                            <a  href='/110' class="btn_prev "><span class="ico_skin ico_prev"></span>Prev</a>
+    						
+    							<a  href='/129' class="link_page"><span >1</span></a>
+    						
+    							<a  class="link_page"><span >&middot;&middot;&middot;</span></a>
+    						
+    							<a  href='/115' class="link_page"><span >6</span></a>
+    						
+    							<a  href='/113' class="link_page"><span >7</span></a>
+    						
+    							<a  href='/111' class="link_page"><span >8</span></a>
+    						
+    							<a  href='/110' class="link_page"><span >9</span></a>
+    						
+    							<a  class="link_page"><span class="selected">10</span></a>
+    						
+    							<a  href='/108' class="link_page"><span >11</span></a>
+    						
+    							<a  href='/105' class="link_page"><span >12</span></a>
+    						
+    							<a  href='/104' class="link_page"><span >13</span></a>
+    						
+    							<a  href='/103' class="link_page"><span >14</span></a>
+    						
+    							<a  class="link_page"><span >&middot;&middot;&middot;</span></a>
+    						
+    							<a  href='/1' class="link_page"><span >111</span></a>
+    						
+                            <a  href='/108' class="btn_next ">Next<span class="ico_skin ico_next"></span></a>
+    					</span>
+    				</div>
+                
+            </div>
+        </div>
+    </div>
+    <hr class="hide">
+    <div id="dkFoot" role="contentinfo" class="area_foot">
+        <small class="info_copyright">
+            Blog is powered by
+            <a href="http://www.kakaocorp.com" class="emph_t" target="_blank">kakao</a> / Designed by
+            <a href="http://www.tistory.com" class="emph_t" target="_blank">Tistory</a>
+        </small>
+    </div>
+</div>
+
+
+
+<script src="https://tistory1.daumcdn.net/tistory/1882497/skin/images/script.js"></script>
+<script type="text/javascript">
+ document.oncontextmenu = new Function ('return false');
+ document.ondragstart = new Function ('return false');
+ document.onselectstart = new Function ('return false');
+  document.body.style.MozUserSelect = 'none';
+</script>
+<script type="text/javascript" src="https://t1.daumcdn.net/tistory_admin/assets/blog/9c12a50bddda885ac1f1b8e3a563149d11b995a7/blogs/plugins/PreventCopyContents/js/functions.js?_version_=9c12a50bddda885ac1f1b8e3a563149d11b995a7"></script>
+<script src="//search1.daumcdn.net/search/statics/common/js/g/search_dragselection.min.js"></script>
+<script>
+    (function($) {
+        $("body").bind('copy', function (e) {
+
+            var url = document.location.href,
+                decodedUrl = decodeURI(url),
+                selection = window.getSelection();
+
+
+            if (typeof window.getSelection == "undefined") {//IE8 or earlier...
+                event.preventDefault();
+
+                var pagelink = '\n\n 출처: ' + decodedUrl,
+                    copytext = selection + pagelink;
+
+                if (window.clipboardData) {
+                    window.clipboardData.setData('Text', copytext);
+                }
+                return;
+            }
+            var body_element = document.getElementsByTagName('body')[0];
+
+            //if the selection is short let's not annoy our users
+            if (("" + selection).length < 30) return;
+
+            //create a div outside of the visible area
+            var newdiv = document.createElement('div');
+            newdiv.style.position = 'absolute';
+            newdiv.style.left = '-99999px';
+            body_element.appendChild(newdiv);
+            newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+            //we need a <pre> tag workaround
+            //otherwise the text inside "pre" loses all the line breaks!
+            if (selection.getRangeAt(0).commonAncestorContainer.nodeName == "PRE") {
+                newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+            }
+
+            newdiv.innerHTML += '<br /><br />출처: <a href="' + url + '">' + escapeHTML(decodedUrl) + '</a> [Mindware 깍두기]';
+
+            selection.selectAllChildren(newdiv);
+
+            window.setTimeout(function () {
+                body_element.removeChild(newdiv);
+            }, 200);
+        });
+    })(tjQuery);
+</script>
+	<script>
+	    lightbox.option({
+			"fadeDuration": 200,
+		    "resizeDuration": 200,
+		    "wrapAround": false,
+			"albumLabel": "%1 / %2",
+			"fitImagesInViewport":true ,
+			"stopEvent": false
+	    })
+	</script><script type="text/javascript">
+var _tiq = 'undefined' !== typeof _tiq ? _tiq : [];
+_tiq.push(['__setConfig', {enableScroll:true, enableClick:true, enableButton:true}]);
+_tiq.push(["__setParam", "svcdomain", "user.tistory.com"]);
+(function(d) {
+	var se = d.createElement('script'); se.type = 'text/javascript'; se.async = true;
+	se.src = location.protocol + '//m2.daumcdn.net/tiara/js/td.min.js';
+	var s = d.getElementsByTagName('head')[0]; s.appendChild(se);
+})(document);
+_tiq.push(['__setParam', 'param_ex', JSON.stringify({"userId":"1415140","blogId":"1882497","role":"guest","filterTarget":false,"entryId":"109"})]);
+_tiq.push(['__trackPageview']);
+_tiq.push(['__content', 't_content', {
+'c_id':'1882497_109', 
+'c_title':'Intent :: setFlags() VS addFlags()', 
+'type':'article', 
+'author':'', 
+'author_id':'1415140', 
+'cp':'Mindware 깍두기', 
+'cp_id':'1882497', 
+'regdata':'2017-04-18 15:36:58', 
+'plink':'https://stickyny.tistory.com/109', 
+'media':'pcweb', 
+}]);
+var addEvent = function (evt, fn) { window.addEventListener ? window.addEventListener(evt, fn, false) : window.attachEvent('on' + evt, fn); };
+var removeEvent = function(evt, fn) { window.removeEventListener ? window.removeEventListener(evt, fn, false) : window.detachEvent('on' + evt, fn);};
+var ua = navigator.userAgent.toLowerCase(); var isIOS = /iP[ao]d|iPhone/i.test(ua);
+var contentExStat = function() {
+		_tiq.push(['__content', 't_content_ex', {
+			'data_type':'usage'
+, 'meta': {
+'c_id':'1882497_109', 
+'c_title':'Intent :: setFlags() VS addFlags()', 
+'type':'article', 
+'author':'', 
+'author_id':'1415140', 
+'cp':'Mindware 깍두기', 
+'cp_id':'1882497', 
+'regdata':'2017-04-18 15:36:58', 
+'plink':'https://stickyny.tistory.com/109', 
+'media':'pcweb', 
+}
+}]);
+		removeEvent(isIOS ? 'pagehide' : 'beforeunload', contentExStat);
+};
+addEvent(isIOS ? 'pagehide' : 'beforeunload', contentExStat);
+</script>
+<script type="text/javascript">window.roosevelt_params_queue = window.roosevelt_params_queue || []; window.roosevelt_params_queue.push({channel_id: "dk", channel_label: 'tistory'});</script>
+<script type="text/javascript" src="//t1.daumcdn.net/midas/rt/dk_bt/roosevelt_dk_bt.js" async></script>            <script type="text/javascript" src="//t1.daumcdn.net/tiara/js/v1/tiara.min.js"></script>
+            <script type="text/javascript">window.tiara = {"svcDomain":"user.tistory.com","section":"\uae00\ubdf0","trackPage":"\uae00\ubdf0_\ubcf4\uae30","page":"\uae00\ubdf0","key":"1882497-109","customProps":{"userId":0,"blogId":"1882497","role":"guest","filterTarget":false,"trackPage":"\uae00\ubdf0_\ubcf4\uae30","entryId":"109"},"entry":{"entryId":"109","categoryName":"Bottom-Up","categoryId":"613610","author":"1415140","authorId":"1415140","image":"1415140","plink":"\/109","tags":[],"key":"1882497-109"},"sentryDsn":"https:\/\/24d2f6a6e88f4e84885403aabdbd1c7c:e0a560324995426d8fde4d509d4b5ce9@sentry.kakao.com\/894"};</script>
+            <script type="text/javascript" src="https://t1.daumcdn.net/tistory_admin/assets/blog/9c12a50bddda885ac1f1b8e3a563149d11b995a7/blogs/script/tiara/tiara.min.js?_version_=9c12a50bddda885ac1f1b8e3a563149d11b995a7"></script>
+                        <script type="text/javascript">
+                window.roosevelt_params_queue = window.roosevelt_params_queue || [{channel_id: 'dk', channel_label: 'tistory'}];
+            </script>
+            <script type="text/javascript" src="//t1.daumcdn.net/midas/rt/dk_bt/roosevelt_dk_bt.js" async></script><script type="text/javascript">if(window.console!=undefined){setTimeout(console.log.bind(console,"%cTISTORY","font:8em Arial;color:#EC6521;font-weight:bold"),0);setTimeout(console.log.bind(console,"%c  나를 표현하는 블로그","font:2em sans-serif;color:#333;"),0);}</script><iframe style="position:absolute;width:1px;height:1px;left:-100px;top:-100px" src="//stickyny.tistory.com/api" id="editEntry"></iframe><div id="tistoryEtcLayer" class="layer_post"></div><div id="tistorySnsLayer" class="layer_post"></div></body>
+
+</html>
