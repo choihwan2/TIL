@@ -1,4 +1,14 @@
-# Java Thread
+# Java thread
+
+자바에서 thread 에 대해 알게된 내용과 구현을 정리 해보겠다.
+
+
+
+## Thread?
+
+Java 에서 thread를 구현하기에 앞서서 개념이 헷갈린다? 먼저 이 [글](https://donghoson.tistory.com/8?category=799810)을 읽고 오도록하자!
+
+
 
 => main() -> program 의 시작 지점 main() 이 종료되면  프로그램이 종료되요! 이런 관점에서 보면 우리 프로그램은 실행흐름이 단 1개만 존재한다. => 실행흐름을 Thread 라고 표현하고 우린 지금까지 단일 Thread 프로그램을 하고있었던 거다. 참고로 GC 도 Thread다. 
 
