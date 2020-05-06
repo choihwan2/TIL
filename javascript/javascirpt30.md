@@ -91,6 +91,7 @@
 - 가자 유용하게 사용한 부분은 바로 `document.querySelector`로 `audio` 태그안에 있는 `data-key` 의 값에 접근하여 키 코드 값을 가져 온 것이다.
 - `window.addEventListner('keydown', playSound)` 입력키가 들어오는 이벤트가 발생하면 `playSound`라는 함수 호출
 - 마지막줄인 `keys.forEach` 구문을 잘 확인해 두자. 
+- `createElement` 로 새로운 element 를 생성할 수 있다.
 
 
 
