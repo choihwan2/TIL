@@ -2,7 +2,7 @@
 
 ## 알고리즘 문제를 못풀었을 때 볼것
 
-- [코딩테스트를 위한 tip]([https://github.com/JaeYeopHan/Interview_Question_for_Beginner/tree/master/Algorithm#%EC%BD%94%EB%94%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%A5%BC-%EC%9C%84%ED%95%9C-tip](https://github.com/JaeYeopHan/Interview_Question_for_Beginner/tree/master/Algorithm#코딩-테스트를-위한-tip))
+- [코딩테스트를 위한 tip](https://github.com/JaeYeopHan/Interview_Question_for_Beginner/tree/master/Algorithm)
 - 알고리즘은 책만으로 공부할 수 있는게 아니다
   - 강의 또는 지식 전달한 것을 듣고 공부했다고 착각하지 말자. 직접 코딩을 해서 본인것으로 만들어야 한다.
   - 내 실력에 맞는 문제를 풀자!
