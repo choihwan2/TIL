@@ -2,17 +2,15 @@
 
 > 오늘 배운 내용을 [블로그](https://choihwan2.github.io/)에 정리하자
 
-## [Java](https://github.com/choihwan2/TIL/blob/master/Java.md)
+## [Java](https://github.com/choihwan2/TIL/blob/master/Java)
 
-## [Algorithim](https://github.com/choihwan2/TIL/blob/master/Algorithim.md)
+## [Algorithm](https://github.com/choihwan2/TIL/blob/master/Algorithm)
 
-## [JavaScript30](https://github.com/choihwan2/TIL/blob/master/javascript/javascirpt30.md)
+## [JavaScript30](https://github.com/choihwan2/TIL/blob/master/javascript)
 
-## [R](https://github.com/choihwan2/TIL/blob/master/R.md)
+## [Android](https://github.com/choihwan2/TIL/blob/master/Android)
 
-## [Android](https://github.com/choihwan2/TIL/blob/master/Android.md)
-
-## [Baekjoon 오프라인 알고리즘](https://github.com/choihwan2/TIL/blob/master/baekjoon.md)
+## [Baekjoon 오프라인 알고리즘](https://github.com/choihwan2/TIL/blob/master/Algorithm/baekjoon.md)
 
 ## 기타
 

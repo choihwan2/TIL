@@ -11,7 +11,7 @@
     - [15652번: N과 M (4)](https://www.acmicpc.net/problem/15652) [5/4] [코드](https://github.com/choihwan2/multicampus_pratice/blob/master/src/baekjoon/algorithm/day01/NandM4.java)
     - [18290번: NM과 K (1)](https://www.acmicpc.net/problem/18290) [5/6] [코드](https://github.com/choihwan2/multicampus_pratice/blob/master/src/baekjoon/algorithm/day01/NMandK.java)
     - [9095번: 1, 2, 3 더하기](https://www.acmicpc.net/problem/9095) [5/6] [코드](https://github.com/choihwan2/multicampus_pratice/blob/master/src/baekjoon/algorithm/day01/Plus123.java)
-    - [14501번: 퇴사](https://www.acmicpc.net/problem/14501)
+    - [14501번: 퇴사](https://www.acmicpc.net/problem/14501) [5/7] 
     - [14889번: 스타트와 링크](https://www.acmicpc.net/problem/14889)
     - [2529번: 부등호](https://www.acmicpc.net/problem/2529)
     - [14888번: 연산자 끼워넣기](https://www.acmicpc.net/problem/14888)
