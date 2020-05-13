@@ -2,6 +2,8 @@
 
 커리큘럼
 
+010 7156 4101
+
 - 5/12
   - 시간 복잡도
   - 브루트 포스: 브루트 포스 알고리즘과 재귀 함수를 이용해서 어떻게 문제를 해결하는지 알아봅니다.
@@ -11,15 +13,15 @@
     - [15652번: N과 M (4)](https://www.acmicpc.net/problem/15652) [5/4] [코드](https://github.com/choihwan2/multicampus_pratice/blob/master/src/baekjoon/algorithm/day01/NandM4.java)
     - [18290번: NM과 K (1)](https://www.acmicpc.net/problem/18290) [5/6] [코드](https://github.com/choihwan2/multicampus_pratice/blob/master/src/baekjoon/algorithm/day01/NMandK.java)
     - [9095번: 1, 2, 3 더하기](https://www.acmicpc.net/problem/9095) [5/6] [코드](https://github.com/choihwan2/multicampus_pratice/blob/master/src/baekjoon/algorithm/day01/Plus123.java)
-    - [14501번: 퇴사](https://www.acmicpc.net/problem/14501) [5/7] 
-    - [14889번: 스타트와 링크](https://www.acmicpc.net/problem/14889)
-    - [2529번: 부등호](https://www.acmicpc.net/problem/2529)
-    - [14888번: 연산자 끼워넣기](https://www.acmicpc.net/problem/14888)
+    - [14501번: 퇴사](https://www.acmicpc.net/problem/14501) [5/7] [코드](https://github.com/choihwan2/multicampus_pratice/blob/master/src/baekjoon/algorithm/day01/Resignation.java)
+    - [14889번: 스타트와 링크](https://www.acmicpc.net/problem/14889) [5/10] 도전중... 시간초과 :cry:
+    - [2529번: 부등호](https://www.acmicpc.net/problem/2529) [5/12] [코드](https://github.com/choihwan2/multicampus_pratice/blob/master/src/baekjoon/algorithm/day01/Inequality.java)
+    - [14888번: 연산자 끼워넣기](https://www.acmicpc.net/problem/14888) [5/12 1차] [코드](https://github.com/choihwan2/multicampus_pratice/blob/master/src/baekjoon/algorithm/day01/InsertSign.java)
 - 5/14
   - BFS
-    - [1697번: 숨바꼭질](https://www.acmicpc.net/problem/1697)
-    - [13913번: 숨바꼭질 4](https://www.acmicpc.net/problem/13913)
-    - [14226번: 이모티콘](https://www.acmicpc.net/problem/14226)
+    - [1697번: 숨바꼭질](https://www.acmicpc.net/problem/1697) [5/13 답을 봐버렸다..] 
+    - [13913번: 숨바꼭질 4](https://www.acmicpc.net/problem/13913) [5/13] 
+    - [14226번: 이모티콘](https://www.acmicpc.net/problem/14226) [5/13 이해가 되지 않는다]
     - [16928번: 뱀과 사다리 게임](https://www.acmicpc.net/problem/16928)
     - [14502번: 연구소](https://www.acmicpc.net/problem/14502)
     - [16946번: 벽 부수고 이동하기 4](https://www.acmicpc.net/problem/16946)

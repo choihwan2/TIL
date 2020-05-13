@@ -102,7 +102,8 @@ Context는 '상태' 라는 말과 제일 가까운 것 같다.
 
 ## Flag
 - 안드로이드에서 자주 쓰는 플래그 세 개와 addFlag와 SetFlag의 차이점! [출처](https://stickyny.tistory.com/109)
-- ![android_flag](images/android_flag.png)
+
+![android_flag](images/android_flag-8898995.png)
 
 
 

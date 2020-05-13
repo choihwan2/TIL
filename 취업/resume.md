@@ -8,15 +8,19 @@
 ## 보유 기술
 
 - Language 
-	- Java , Oracle
+	- **Java**
+- SQL
+    - Oracle
+
 - Library or Framework
     - Android Studio
+    - Spring
     - Arudino
 
 ## 학력 사항
 
 - 세종대학교 - `2013.03 - 2020.02`
-- 소프트웨어학 학사
+- 디지털콘텐츠 => 현 소프트웨어학 학사:computer: 
 
 ## 경력 사항
 
@@ -33,10 +37,11 @@
         2. 이미지를 올릴 수 있는 타임라인 구현
       3. 글을 올릴 수 있는 게시판 구현
   2. (팀) 과정중 배운 내용을 기반의 IoT 시스템 개발
-  - AmazonGo의 무인 매장 시스템 클론 - `2020.05.03 ~`
+  - AmazonGo의 무인 매장 시스템 클론 프로젝트 - `2020.05.03 ~`
       - AmazonGo 어플리케이션 클론
       - 라떼판다와 각종 센서들로 무인 매장 시스템 제작
       - Java를 활용해서 웹 서버 구축
+      - Firebase를 활용한 유저정보 관리
 
 
 ## 프로젝트
@@ -47,6 +52,7 @@
     - 기술 : Java, Android, Node.js
     - 역할 : Android Studio 를 이용한 모바일 어플리케이션 제작 - 
         - Naver Book Open API를 활용해 희망도서부분 구현
+        - 열람실 현황을 볼 수 있는 열람실부분 구현
     - [GitHub](https://github.com/choihwan2/mobile_sejong_library)
 
 ## **수상이력**
