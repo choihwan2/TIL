@@ -22,25 +22,25 @@
     - [1697번: 숨바꼭질](https://www.acmicpc.net/problem/1697) [5/13 답을 봐버렸다..] 
     - [13913번: 숨바꼭질 4](https://www.acmicpc.net/problem/13913) [5/13] 
     - [14226번: 이모티콘](https://www.acmicpc.net/problem/14226) [5/13 이해가 되지 않는다]
-    - [16928번: 뱀과 사다리 게임](https://www.acmicpc.net/problem/16928)
-    - [14502번: 연구소](https://www.acmicpc.net/problem/14502)
-    - [16946번: 벽 부수고 이동하기 4](https://www.acmicpc.net/problem/16946)
+    - [16928번: 뱀과 사다리 게임](https://www.acmicpc.net/problem/16928) [5/17 수업때 배운 함정에 빠졌다.]
+    - [14502번: 연구소](https://www.acmicpc.net/problem/14502) [5/18]
+    - [16946번: 벽 부수고 이동하기 4](https://www.acmicpc.net/problem/16946) [5/28]
 - 5/19
   - 브루트 포스
-    - [16922번: 로마 숫자 만들기](https://www.acmicpc.net/problem/16922)
+    - [16922번: 로마 숫자 만들기](https://www.acmicpc.net/problem/16922) [5/19]
     - [16197번: 두 동전](https://www.acmicpc.net/problem/16197)
-    - [16198번: 에너지 모으기](https://www.acmicpc.net/problem/16198)
-    - [16637번: 괄호 추가하기](https://www.acmicpc.net/problem/16637)
+    - [16198번: 에너지 모으기](https://www.acmicpc.net/problem/16198) [5/19 실패..] [5/20 ArrayList 와 boolArr 두개로 풀어봄]
+    - [16637번: 괄호 추가하기](https://www.acmicpc.net/problem/16637) []
     - [2210번: 숫자판 점프](https://www.acmicpc.net/problem/2210)
     - [17779번: 게리 맨더링 2](https://www.acmicpc.net/problem/17779)
     - [17135번: 캐슬 디펜스](https://www.acmicpc.net/problem/17135)
 - 5/21
   - 브루트 포스
     - [17070번: 파이프 옮기기 1](https://www.acmicpc.net/problem/17070)
-    - [16987번: 계란으로 계란치기](https://www.acmicpc.net/problem/16987)
+    - [16987번: 계란으로 계란치기](https://www.acmicpc.net/problem/16987) * [5/20 재밌당]
     - [15684번: 사다리 조작](https://www.acmicpc.net/problem/15684)
     - [17090번: 미로 탈출하기](https://www.acmicpc.net/problem/17090)
-    - [16957번: 체스판 위의 공](https://www.acmicpc.net/problem/16957)
+    - [16957번: 체스판 위의 공](https://www.acmicpc.net/problem/16957) [5/21 2차원 배열을 1차원 배열로 깔끔하게 옮겨보자]
     - [17136번: 색종이 붙이기](https://www.acmicpc.net/problem/17136)
   - BFS
     - [17822번: 원판 돌리기](https://www.acmicpc.net/problem/17822)

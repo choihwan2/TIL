@@ -358,3 +358,47 @@ public class Problem1931 {
 - 처음 알고리즘을 풀면서 Comparator를 사용해본거라 좀 지저분하다.. compare 메소드를 오버라이딩 하면서 저렇게 하는게 맞는건지도 헷갈리지만.. 후에 좀더 알게되면 수정해보도록 해야겠다.
 - 참고로 Arrays.sort() 함수는 기본적으로 오름차순의 정렬을 한다.
 
+
+
+## Bit 표현
+
+```java
+public class MoreBiggerNumber2 {
+	public int solution(int n) {
+		int countOneOfN = getOneNumber(n);
+		while (getOneNumber(++n) != countOneOfN);
+		return n;
+	}
+
+	public int getOneNumber(int n) {
+		return Integer.bitCount(n);
+	}
+}
+```
+
+- 2진수에서 1의 개수를 세는 경우 편리한 함수이다. `Integer.bitCount(n)` 기억하자!
+
+
+
+```java
+public class MoreBiggerNumber2 {
+	public int solution(int n) {
+		int countOneOfN = getOneNumber(n);
+		while (getOneNumber(++n) != countOneOfN);
+		return n;
+	}
+
+	public int getOneNumber(int n) {
+		int count = 0;
+		String bin = Integer.toBinaryString(n);
+		for(char c : bin.toCharArray()) {
+			if(c == '1') count++;
+		}
+		return count;
+	}
+}
+```
+
+- 받아온 값을 2진수의 `String` 형태로 변환 시켜주는 함수이다. 매우 유용해보이니 기억하자!
+
+> toHex..나 toOctal 등등.. 좋은 것을 늦게 알아버렸다.
