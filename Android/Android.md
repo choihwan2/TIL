@@ -128,3 +128,74 @@ Activity 나 Fragment 는 주로 UI 데이터를 표시하거나 사용자의 �
 ## Room
 
 [링크](https://tourspace.tistory.com/28?category=788397)
+
+
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/product_img"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.2"
+        app:layout_constraintHeight_percent="0.7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="@id/item_vertical_gl"/>
+
+    <TextView
+        android:id="@+id/product_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="상품 이름이 들어갈 공간입니다."
+        android:textColor="@android:color/black"
+        app:layout_constraintWidth_percent="0.7"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/product_count"
+        app:layout_constraintLeft_toRightOf="@id/item_vertical_gl"/>
+
+    <TextView
+        android:id="@+id/product_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="수량"
+        app:layout_constraintTop_toBottomOf="@id/product_title"
+        app:layout_constraintBottom_toTopOf="@id/proudct_price"
+        app:layout_constraintLeft_toRightOf="@id/item_vertical_gl"/>
+
+    <TextView
+        android:id="@+id/proudct_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="상품 가격"
+        app:layout_constraintTop_toBottomOf="@id/product_count"
+        app:layout_constraintLeft_toRightOf="@id/item_vertical_gl"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="삭제"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/item_vertical_gl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
