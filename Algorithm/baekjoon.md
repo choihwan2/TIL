@@ -28,7 +28,7 @@
 - 5/19
   - 브루트 포스
     - [16922번: 로마 숫자 만들기](https://www.acmicpc.net/problem/16922) [5/19]
-    - [16197번: 두 동전](https://www.acmicpc.net/problem/16197)
+    - [16197번: 두 동전](https://www.acmicpc.net/problem/16197) [5/29]
     - [16198번: 에너지 모으기](https://www.acmicpc.net/problem/16198) [5/19 실패..] [5/20 ArrayList 와 boolArr 두개로 풀어봄]
     - [16637번: 괄호 추가하기](https://www.acmicpc.net/problem/16637) []
     - [2210번: 숫자판 점프](https://www.acmicpc.net/problem/2210)
@@ -37,7 +37,7 @@
 - 5/21
   - 브루트 포스
     - [17070번: 파이프 옮기기 1](https://www.acmicpc.net/problem/17070)
-    - [16987번: 계란으로 계란치기](https://www.acmicpc.net/problem/16987) * [5/20 재밌당]
+    - [16987번: 계란으로 계란치기](https://www.acmicpc.net/problem/16987) * [5/20 재밌다]
     - [15684번: 사다리 조작](https://www.acmicpc.net/problem/15684)
     - [17090번: 미로 탈출하기](https://www.acmicpc.net/problem/17090)
     - [16957번: 체스판 위의 공](https://www.acmicpc.net/problem/16957) [5/21 2차원 배열을 1차원 배열로 깔끔하게 옮겨보자]
