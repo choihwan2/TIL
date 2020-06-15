@@ -21,7 +21,7 @@
   - BFS
     - [1697번: 숨바꼭질](https://www.acmicpc.net/problem/1697) [5/13 답을 봐버렸다..] 
     - [13913번: 숨바꼭질 4](https://www.acmicpc.net/problem/13913) [5/13] 
-    - [14226번: 이모티콘](https://www.acmicpc.net/problem/14226) [5/13 이해가 되지 않는다]
+    - [14226번: 이모티콘](https://www.acmicpc.net/problem/14226) [5/13 이해가 되지 않는다] [6/14 해결]
     - [16928번: 뱀과 사다리 게임](https://www.acmicpc.net/problem/16928) [5/17 수업때 배운 함정에 빠졌다.]
     - [14502번: 연구소](https://www.acmicpc.net/problem/14502) [5/18]
     - [16946번: 벽 부수고 이동하기 4](https://www.acmicpc.net/problem/16946) [5/28]
@@ -31,7 +31,7 @@
     - [16197번: 두 동전](https://www.acmicpc.net/problem/16197) [5/29]
     - [16198번: 에너지 모으기](https://www.acmicpc.net/problem/16198) [5/19 실패..] [5/20 ArrayList 와 boolArr 두개로 풀어봄]
     - [16637번: 괄호 추가하기](https://www.acmicpc.net/problem/16637) []
-    - [2210번: 숫자판 점프](https://www.acmicpc.net/problem/2210)
+    - [2210번: 숫자판 점프](https://www.acmicpc.net/problem/2210) [6/12]
     - [17779번: 게리 맨더링 2](https://www.acmicpc.net/problem/17779)
     - [17135번: 캐슬 디펜스](https://www.acmicpc.net/problem/17135)
 - 5/21
