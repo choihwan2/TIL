@@ -39,7 +39,7 @@
     - [17070번: 파이프 옮기기 1](https://www.acmicpc.net/problem/17070)
     - [16987번: 계란으로 계란치기](https://www.acmicpc.net/problem/16987) * [5/20 재밌다]
     - [15684번: 사다리 조작](https://www.acmicpc.net/problem/15684)
-    - [17090번: 미로 탈출하기](https://www.acmicpc.net/problem/17090)
+    - [17090번: 미로 탈출하기](https://www.acmicpc.net/problem/17090) [6/27 답을 보고 풀었다..]
     - [16957번: 체스판 위의 공](https://www.acmicpc.net/problem/16957) [5/21 2차원 배열을 1차원 배열로 깔끔하게 옮겨보자]
     - [17136번: 색종이 붙이기](https://www.acmicpc.net/problem/17136)
   - BFS
