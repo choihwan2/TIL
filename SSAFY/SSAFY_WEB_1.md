@@ -129,59 +129,11 @@ jsp의 기본 객체 영역
 
 
 
-# 정리
-
-=hong&age=13
-
-post
-```html
-
-<form action='min.jsp' method='post' >
-
-<input type='text' name='name'/>
-
-<input type='text' name='age'/>
-
-</form>
-```
-
-hello.jsp 바디에
-
-?name=hong&age=13
-
-AJAX - callback
-
-AJAX = Asynchronous JavaScript And XML.
-
-AJAX is not a programming language.
-
-AJAX just uses a combination of:
-
-A browser built-in XMLHttpRequest object (to request data from a web server)
-
-JavaScript and HTML DOM (to display or use the data)
-
-동기보다 좋은점 - 
-
-XMLHttpRequest -> jquery $.ajax $.get $.post
-
-4 200 -> success: { } , fail: { }
-
-404
-
-500
-
-float: left right
-
-diplay inline block  none
-
-​     a span input img- inline
-
-
-
 ## Stateless & statefull
 
-Httpproticol은 대표적인 stateless 이다
+HttpProtocol은 대표적인 stateless 이다. 지속적인 연결로 인한 자원 낭비를 줄이기 위해 연결을 해제하는것.
+
+그러나 client와 server가 연결 상태를 유지해야하는 경우 문제가 발생한다.(예를들면 로그인 정보를 계속 가지고 있어야만 사이트 이동이 가능하다고 한다면?? stateless상태에서는 계속 요청을 보내야하나?? 절대 아니다.) 즉, client단위로 상태 정보를 유지해야하는 경우 cookie와 session 이 사용된다!
 
 
 
@@ -246,6 +198,38 @@ Cookie => 서버에서 사용자의 컴퓨터에 저장하는 정보파일 (서�
 
 
 
+### Session
+
+- 동작순서
+
+  클라이언트가 페이지 요청
+
+  -> 서버가 클라이언트의 Request-Header 필드인 Cookie를 확인, 해당 session-id를 보냈는지 확인
+
+  -> session-id가 없으면, 서버는 session-id를 생성해 클라이언트에게 돌려줌
+
+  -> 서버에서 돌려준 session-id를 쿠키를 사용해 서버에 저장. 쿠키이름 `JSESSIONID`
+
+  -> 클라이언트는 재접속 시, 이 쿠키(`JSESSIONID`)를 이용하여 session-id 값을 서버에 전달
+
+
+
+- session의 특징
+
+  웹 서버에 웹 컨테이너의 상태를 유지하기 위한 정보를 저장
+
+  웹 서버에 저장되는 쿠키(= 세션 쿠키)
+
+  브라우저를 닫거나, 서버에서 세션을 삭제했을 때만 **삭제**가 되므로, 쿠키보다 비교적 보안이 좋다.
+
+  저장 데이터에 제한이 없다
+
+  각 클라이언트 고유 Session ID를 부여한다
+
+  Session ID로 클라이언트를 구분하여 각  클라이언트 요구에 맞는 서비스 제공
+
+
+
 
 
 ## JSTL & EL
@@ -284,4 +268,10 @@ redirect 와 forward
 redirect : 직접 주소가 변경되면서 접근하게됨
 
 forward : 주소가 변경되지않고 뷰(화면)만 변경된다.
+
+
+
+#### JSP include 와 그냥 include 의 차이
+
+JSP include 는 동적 그냥 include는 정적이라고 볼 수 있다. 속도면에서는 정적인것이 당연히 더 빠르겠지만 두 곳의 변수명이 같은경우 심각한 오류 발생의 위험이 있다. 이유로는 정적 include 같은 경우 그 jsp 페이지에 그냥 코드를 넣어서 한번에 컴파일을 하는것이고 jsp include 같은 경우 하나하나 jsp 파일을 컴파일하여 합치기 때문에 그런 에러가 발생하지 않는다.
 
