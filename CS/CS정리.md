@@ -43,14 +43,17 @@
   - 자원(uri), 행위(verb), 표현(representation) 으로 이루어진것
   - 자원을 이름(자원의 표현)으로 구분하여 해당 자원의 상태(정보)를 주고 받는 모든 것
   - 특징 여섯가지
-    - uniform (유니폼 인터페이스) : 지정한 리소스에 대한 조작을 통일, 한정적인 인터페이스로 수행하는 아키텍쳐 스타일
+    - uniform interface (유니폼 인터페이스) : 지정한 리소스에 대한 조작을 통일, 한정적인 인터페이스로 수행하는 아키텍쳐 스타일 => 왜 필요하냐? **서버의 기능이 변경되어도 클라이언트를 업데이트할 필요가 없게만들려고.**
+      -  **self-descriptive message**  : 메시지는 자체만으로 해석이 가능해야한다
+      - **HATEOAS** : 애플리케이션의 상태는 언제나 하이퍼 링크로 전이되어야한다.
     - stateless (무상태성) : API 서버는 들어오는 요청만을 단순히 처리하면 된다.
     - cacheable (캐시 가능) : 
-    - self-descriptiveness
     - client - server : 클라이언트와 서버와의 데이터 송수신으로 이루어진다.
-    - 계층형
+    - layered system : 계층형
+    - code-on-demand : 코드의 요청에 따라서 서버에서 어떠한 것들이 실행될수 있어야한다.(ex 자바스크립트)
   - URI는 자원을 표현하는 데에 집중하고 행위에 대한 정의는 HTTP METHOD를 통해 하는 것이 REST한 API를 설계하는 중심 규칙
-  - 즉 , REST란, HTTP URI(Uniform Resource Identifier)를 통해 자원(Resource)을 명시하고, HTTP Method(POST, GET, PUT, DELETE)를 통해 해당 자원에 대한 CRUD Operation을 적용하는 것을 의미 + API 데이터와 기능의 집합을 제공하여 프로그램간 상호작용 촉진, 정보 교환가능하도록 하는 설명서같은 역활, API는 프로그램과 또 다른 프로그램을 연결해주는 일종의 다리
+  - 즉 , REST란, HTTP URI(Uniform Resource Identifier)를 통해 자원(Resource)을 명시하고, HTTP Method(POST, GET, PUT, DELETE)를 통해 해당 자원에 대한 CRUD Operation(제어)을 적용하는 것을 의미 + API 데이터와 기능의 집합을 제공하여 프로그램간 상호작용 촉진, 정보 교환가능하도록 하는 설명서같은 역활, API는 프로그램과 또 다른 프로그램을 연결해주는 일종의 다리
+    - 현시점의 REST API 는 완벽하지 않은 경우가 많다. 그 이유는 REST API는 아키텍쳐 패턴 즉, 다양한 제약조건들을 만족해야 가능한 것인데. 여기서 다양한 것들은 
 
 - TDD란 무엇인가, 장점은??
 
@@ -134,19 +137,19 @@
   - HTTP에서 사용해본 헤더나 사용되는 헤더들
 
     - 일반 헤더 (request나 response 둘다 사용 가능)
-      - Cache-control - public(응답이 어떤 캐시에 의해서든 캐시로 저장된다.), private(공유캐시에의해 저장X), no-cache(원서버로 요청해서 무조건 새로운캐시), only-if-cached(새로운 데이터 X 무조건 캐시만)
-      - Connection : 뒤에 오는 헤더는 더이상 전송하지 않는다, close 이제 연결을 끊낸다, keep-alive 연결을 계속할때 쓰는 헤더
-      - Date : 생성된 날짜를 
-      - via : 프록시를 경유할 경우 반드시 필요하다.
-      - Referer 요청 헤더는 현재 요청된 페이지의 링크 이전의 웹 페이지 주소를 포함합니다. `Referer` 헤더는 사람들이 어디로부터 와서 방문 중인지를 인식할 수 있도록 해주며 해당 데이터는 예를 들어, 분석, 로깅, 혹은 캐싱 최적화에 사용될 수도 있습니다.
+      - **Cache-control** : public(응답이 어떤 캐시에 의해서든 캐시로 저장된다.), private(공유캐시에의해 저장X), no-cache(원서버로 요청해서 무조건 새로운캐시), only-if-cached(새로운 데이터 X 무조건 캐시만)
+      - **Connection** : 뒤에 오는 헤더는 더이상 전송하지 않는다, close 이제 연결을 끊낸다, keep-alive 연결을 계속할때 쓰는 헤더
+      - **Date** : 생성된 날짜를 헤더에 추가한다.
+      - **via** : 프록시를 경유할 경우 반드시 필요하다. 어떤 경로를 탔는지 알려줌
+      - **Referer** :  요청 헤더는 현재 요청된 페이지의 링크 이전의 웹 페이지 주소를 포함합니다. `Referer` 헤더는 사람들이 어디로부터 와서 방문 중인지를 인식할 수 있도록 해주며 해당 데이터는 예를 들어, 분석, 로깅, 혹은 캐싱 최적화에 사용될 수도 있습니다. => 상호운용성 때문에 Referer이라는 오타는 평생 고쳐질수없다.. 고치는 순간 하위 버전의 웹들이 모조리 박살나기 때문. + charset 도 encoding이여야하는데 잘못 지은 이름이다.
     - 리퀘스트 헤더
-      - Accept : 가능하면 어떤 리소스로 받을건지 정하는 것.
-      - Accept-Charset : 어떤 문자셋으로 읽고 싶을지 쓰는 헤더
-      - Authorization : 유저의 인증 정보를 전달 하기 위해 사용
-      - Range : 리소스의 일부분만 취득할때 사용되는 헤더
+      - **Accept** : 가능하면 어떤 리소스로 받을건지 정하는 것. 서버에게 나 ~~~한것들로 보내줘 부탁하는거라고 보면된다.
+      - **Accept-Charset** : 어떤 문자셋으로 읽고 싶을지 쓰는 헤더 위와 비슷
+      - **Authorization** : 유저의 인증 정보를 전달 하기 위해 사용
+      - **Range** : 리소스의 일부분만 취득할때 사용되는 헤더
     - 리스폰스 헤더필드
-      - Accept-Range : 리퀘스트에 Range 헤더가 있으면 응답하는 것으로 bytes(가능) none(불가능) 으로 응답
-      - Location : 페이지가 이동되었을때 바뀐 곳을 알려준다. 대부분 3xx 에러와 함께 받으면 리다이렉트함
+      - **Accept-Range** : 리퀘스트에 Range 헤더가 있으면 응답하는 것으로 bytes(가능) none(불가능) 으로 응답
+      - **Location** : 페이지가 이동되었을때 바뀐 곳을 알려준다. 대부분 3xx 에러와 함께 받으면 리다이렉트함
     - 엔티티 헤더필드
       - Allow : 사용가능한 메소드의 일람을 전달 (GET,POST, 등)
     - 타 자주사용되는 헤더필드
@@ -159,19 +162,35 @@
 
   - HTTP vs HTTPS
 
-    - HTTPS 검색엔진 최적화
+    - HTTPS는 **증명서를 통해 서버 또는 클라이언트의 신원을 확인하고, 데이터를 암호화, 인증, 안정성 보호를 할 수 있는 프로토콜**
     - SSL TSL
+
+  - HTTP/2  vs HTTP/1.1 
+
+      - 그것은 텍스트 프로토콜이라기 보다는 이진 프로토콜입니다. 더 이상 읽을 수도 없고 수작업을 만들어낼 수 없습니다; 이런 결점에 대한 보상으로, 새로운 최적화 기술이 구현될 수 있습니다.
+      - 병렬 요청이 동일한 커넥션 상에서 다루어질 수 있는 다중화 프로토콜로, 순서를 제거해주고 HTTP/1.x 프로토콜의 제약사항을 막아줍니다. => http1.1은 파이프라이닝이라는 기법으로 다중으로 요청을 보내기도했다. 하지만 아래와 같은 문제점들도 있다.![스크린샷 2020-10-25 오후 4.52.41](images/스크린샷 2020-10-25 오후 4.52.41.png)
+      - 전송된 데이터의 분명한 중복과 그런 데이터로부터 유발된 불필요한 오버헤드를 제거하면서, 연속된 요청 사이의 매우 유사한 내용으로 존재하는 헤더들을 압축시킵니다.
+      - 서버로 하여금 사전에 클라이언트 캐시를 서버 푸쉬라고 불리는 메커니즘에 의해, 필요하게 될 데이터로 채워넣도록 허용합니다.
 
   - 웹소켓 과 TCP 소켓의 차이
 
   - 쿠키와 세션
 
     - 쿠키 : 유저 식별과 유저의 상태를 관리하기 위해 사용되는 기능, 클라이언트 컴퓨터상에 저장하고 같은 웹사이트에 요청을 보낼시 딸려간다. 
-      - Set-cookie 의 설정중 secure 을 넣게 되면 https 에서만 쿠키가 보내진다.
+      
+    - Set-cookie 의 설정중 secure 을 넣게 되면 https 에서만 쿠키가 보내진다. 문제점으로는 사용자 브라우저에 존재하다보니 해킹의 위험성이 세션보다 더 높다.
+    
+  - 세션: 서버에서 관리되는 쿠키, 계속해서 로그인해야하는 상태나 그런것들을 관리한다. 그런데 너무 많이 생성하게 되면 서버에 과부하가 오게 된다. 해결법은?? => 쿠키와 세션의 문제점들을 보완하기 위해 토큰( Token )기반의 인증 방식이 도입되었습니다.
+
+      토큰 기반의 인증 방식의 핵심은 **보호할 데이터를 토큰으로 치환하여 원본 데이터 대신 토큰을 사용하는 기술** ex: OAuth, JWT
 
   - CORS 
 
   - 프록시 서버와 캐시 서버의 차이
+
+  - OAuth 토큰 : 인증방식의 방법중 하나이며 이미 타 인증된 기업의 로그인 방식을 인가해서 사용하는 토큰을 발급받는것이다.
+
+  - [JWT](https://victorydntmd.tistory.com/115)
 
 ## 10월 23일 (금)
 
@@ -254,17 +273,40 @@
 
   - Statement vs PreparedStatement
 
-## 10월 26일 (월)
+## 요건 중요할것같아..
 
-- NoSQL vs RDBMS
-- 위에서 부족한 내용들 + 이건 하고가자...
-
-스터디진행과정정리
-
-- 준비해온거 주고받기
-- 다음날 할거 정하기
-
-
+1. 객체지향 프로그래밍
+2. Rest API
+3. TDD
+4. JVM 의 구조
+5. GC의 동작 방식
+6. JVM의 힙의 구조
+7. [프로세스와 스레드](https://github.com/JaeYeopHan/Interview_Question_for_Beginner/tree/master/OS#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80-%EC%8A%A4%EB%A0%88%EB%93%9C%EC%9D%98-%EC%B0%A8%EC%9D%B4)
+8. 프로세스의 구조
+9. [가상 메모리와 페이징 시스템](https://github.com/JaeYeopHan/Interview_Question_for_Beginner/tree/master/OS#%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B4%80%EB%A6%AC-%EC%A0%84%EB%9E%B5)
+10. 세마포어와 뮤택스
+    - 세마포어는 공유 자원에 **세마포어의 변수만큼의 프로세스(또는 쓰레드)가 접근**할 수 있습니다. 반면에 뮤텍스는 **오직 1개만의 프로세스(또는 쓰레드)만 접근**할 수 있습니다.
+    - 현재 수행중인 프로세스가 아닌 **다른 프로세스가 세마포어를 해제할 수 있습니다.** 하지만 뮤텍스는 **락(lock)을 획득한 프로세스가 반드시 그 락을 해제**해야 합니다.
+11. [OSI 7계층](https://tar-cvzf-studybackup-tar-gz.tistory.com/37?category=722700), TCP/IP 4계층
+12. 주소창에 google.com을 입력하면?
+13. TCP 와 UDP
+14. 각종 헤더들
+15. DNS
+16. HTTP 와 HTTPS
+17. 웹소켓과 TCP 소켓
+    - webSocket이 기존의 일반 TCP Socket과 다른 점은 최초 접속이 일반 http request를 통해 handshaking과정을 통해 이루어 진다는 점이다. http request를 그대로 사용하기 때문에 기존의 80, 443 포트로 접속을 하므로 추가로 방화벽을 열지 않고도 양방향 통신이 가능하고, http 규격인 CORS적용이나 인증등의 과정을 기존과 동일하게 가저갈 수 있는것이 장점이다.
+    - 웹소켓은 처음에 핸드쉐이크 방식으로 통신을 확립한후 후에 WebSocket이라는 별도의 프로토콜로 변경한다. 양방향 통신이 가능해서 서버가 클라이언트를 기다리지않고 먼저 송신할 수 있음.
+18. 쿠키와 세션
+19. HashMap 과 HashTable [해설](https://d2.naver.com/helloworld/831311)
+20. QuickSort의 동작방식과 시간복잡도
+21. Transation이란? 그리고 동작방식
+22. Index란?
+23. Primary key, Reference key, Composite key 
+24. Join 과 Inner Join 과 Outer Join
+25. Java에서 volatile 이라는 예약어
+26. [PCB와 Context Switching](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/PCB%20%26%20Context%20Switcing.md)
+27. [프로세스간의 통신 IPC](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Operating%20System/IPC(Inter%20Process%20Communication).md)
+28. [TCP 방식의 흐름과 혼잡제어](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Network/TCP%20(%ED%9D%90%EB%A6%84%EC%A0%9C%EC%96%B4%ED%98%BC%EC%9E%A1%EC%A0%9C%EC%96%B4).md#tcp-%ED%9D%90%EB%A6%84%EC%A0%9C%EC%96%B4%ED%98%BC%EC%9E%A1%EC%A0%9C%EC%96%B4)
 
 
 
